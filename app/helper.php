@@ -354,6 +354,10 @@ function insertIntoPortal($tableName,$array)
   }
 }
 
+function getOfficialDocumentId() {
+    return DebitType::where("concept", "=", "Documento oficial")->first();
+}
+
 function validateDocumentInscription($id_alumno, $document_type_id)
 {
   $document = Document::where([["alumn_id","=",$id_alumno],["type","=",1],["document_type_id","=",$document_type_id]])->first();
