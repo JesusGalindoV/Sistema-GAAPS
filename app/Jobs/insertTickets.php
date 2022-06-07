@@ -9,6 +9,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Alumns\Debit;
 use App\Models\Alumns\Ticket;
+use App\Library\Ticket as TicketLibrary;
+use App\Enum\DebitStatus;
 
 
 class insertTickets implements ShouldQueue
@@ -32,18 +34,22 @@ class insertTickets implements ShouldQueue
      */
     public function handle()
     {
-        $debits = Debit::where("period_id", getConfig()->period_id)->get();
+        set_time_limit(400);
+        //$debits = Debit::where("period_id", getConfig()->period_id)->get();
+        $debits = Debit::all();
         foreach ($debits as $key => $value) {
             try {
 
                 $ticket = Ticket::where("debit_id", $value->id)->first();
 
                 if (!$ticket) {
-                    createTicket($value->id, true);
+                    if ($value->status == Debit::getStatus(DebitStatus::paid())) {
+                        TicketLibrary::build($value);
+                    }
                 } else {
                     if ($value->status == 0) {
                        $ticket->delete();
-                    } 
+                    }
                 }          
             } catch(\Exception $e) {
                 $out = new \Symfony\Component\Console\Output\ConsoleOutput();

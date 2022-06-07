@@ -72,7 +72,7 @@ class PdfController extends Controller
             $user = current_user();
             if ($documentType->type == 1) {
                 $debit = new Debit();
-                $debit->debit_type_id = 5;
+                $debit->debit_type_id = getOfficialDocumentId()->id;
                 $debit->description = 'Documento oficial unisierra';
                 $debit->amount = $documentType->cost;
                 $debit->admin_id = 2;
@@ -91,6 +91,7 @@ class PdfController extends Controller
                 return redirect()->back();
             }
         } catch(\Exception $e) {
+            dd($e);
             session()->flash("messages", "error|No fue posible generar el adeudo");
             return redirect()->back();
         }
