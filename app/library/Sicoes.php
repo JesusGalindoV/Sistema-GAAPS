@@ -7,6 +7,7 @@ use App\Models\Sicoes\EncGrupo;
 use App\Models\Sicoes\Carrera;
 use App\Models\Sicoes\Periodo;
 use App\Models\Sicoes\Carga;
+use App\Models\CarreraModel;
 use DB;
 
 class Sicoes {
@@ -173,7 +174,7 @@ class Sicoes {
      * @return array
      */
     public static function carrerasActivas() {
-        $planes = Carrera::whereNotIn("CarreraId", [8,4,7,9])->get();
+        $planes = CarreraModel::where("is_activa", 1)->get();
         return $planes;
     }
 

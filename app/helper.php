@@ -5,6 +5,7 @@ use App\Models\Alumns\Notify;
 use App\Models\Alumns\DebitType;
 use App\Models\Alumns\HighAverages;
 use App\Models\PeriodModel;
+use App\Models\CarreraModel;
 use App\Models\ConfigModel;
 use App\Models\Alumns\Document;
 use App\Models\Alumns\DocumentType;
@@ -102,6 +103,21 @@ function addFailedRegister($id,$message) {
     $instance->save();
 }
 
+function getPrecioPorCarrera($planId) {
+    $plan = PlanEstudio::find($planId);
+    $currentPrice = getConfig()->price_inscription;
+
+    if ($plan) {
+        $carrera = CarreraModel::find($plan->CarreraId);
+
+        if ($carrera) {
+             $originalPrice = $carrera->precio;
+         } 
+    }
+
+    return $originalPrice;
+}
+
 /**
  * inserta el adeudo correpondiente de inscription.
  *
@@ -121,7 +137,7 @@ function insertInscriptionDebit(User $user)
     $debit_array = [
         'debit_type_id' => 1,
         'description' => 'Aportacion a la calidad estudiantil',
-        'amount' => getConfig()->price_inscription,
+        'amount' => getPrecioPorCarrera(),
         'admin_id'=> 2,
         'id_alumno' => $user->id_alumno,
         'status' => 0,
