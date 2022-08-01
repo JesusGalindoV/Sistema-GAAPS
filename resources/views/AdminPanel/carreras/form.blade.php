@@ -60,7 +60,7 @@
 
                   </div>
 
-                  <input type="text" id="Clave" name="Clave" placeholder="Ingrese la clave de la carrera" class="form-control form-control-lg" required value="{{$instance->Clave}}">
+                  <input type="text" id="Clave" name="Clave" placeholder="Ingrese la clave de la carrera" class="form-control form-control-lg" maxlength="2" required value="{{$instance->Clave}}">
 
               </div>
 
@@ -114,9 +114,33 @@
 
                   </div>
 
-                  <select name="is_activa" class="form-control form-control-lg">
+                  <select name="is_activa" class="form-control form-control-lg" required>
+                    <option value="">Seleccione</option>}
                     <option value="1" @if($instance->is_activa == 1) selected @endif>Activa</option>
                     <option value="0" @if($instance->is_activa == 0) selected @endif>Inactiva</option>
+                  </select>
+
+              </div>
+
+            </div>
+
+             <div class="col-md-6">
+
+              <label class="label-style" for="nombre">Divicion</label>
+
+              <div class="input-group mb-3">
+
+                  <div class="input-group-prepend">
+
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+
+                  </div>
+
+                  <select name="DivisionId" class="form-control form-control-lg">
+                    @foreach(getDiviciones() as $item)
+                    <option value="{{$item->DivisionId}}" @if($instance->DivisionId == $item->DivisionId) selected @endif>{{$item->NombreDivision}}</option>}
+                    option
+                    @endforeach
                   </select>
 
               </div>

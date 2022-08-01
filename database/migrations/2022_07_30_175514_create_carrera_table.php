@@ -14,7 +14,7 @@ class CreateCarreraTable extends Migration
     public function up()
     {
         Schema::create('carrera', function (Blueprint $table) {
-            $table->string('CarreraId');
+            $table->bigIncrements('CarreraId');
             $table->string("Clave");
             $table->string("Nombre");
             $table->string("Abreviatura");

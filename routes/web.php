@@ -880,7 +880,7 @@ Route::group(['domain' => $alumnDomain], function() {
 				        'as' => 'carreras.edit'
 					]);
 
-					Route::post('/create/save/{user?}', [
+					Route::post('/create/save/{instance?}', [
 				        'uses' => 'CarrerasController@save', 
 				        'as' => 'carreras.save'
 					]);

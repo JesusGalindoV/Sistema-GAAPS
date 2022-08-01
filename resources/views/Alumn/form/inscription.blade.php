@@ -517,7 +517,7 @@
                                                     <option value="" disabled="" selected="">Seleccionar</option>
 
                                                     @foreach($school as $key => $value)
-                                                        <option value="{{ $value->CarreraId }}">{{ $value->Nombre }}</option>
+                                                        <option value="{{ $value['PlanEstudioId'] }}">{{ $value["Nombre"] }}</option>
                                                     @endforeach                             
                                                     
                                                 </select>

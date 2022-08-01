@@ -7,7 +7,7 @@ use App\Models\Sicoes\PlanEstudio;
 
 class CarreraModel extends Model
 {
-    protected $table = "carreras";
+    protected $table = "carrera";
 
     protected $primaryKey = 'CarreraId';
 }

@@ -149,6 +149,15 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{route('admin.carreras')}}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Carreras
+                        </p>
+                    </a>
+                </li>
+
                  <li class="nav-item">
                     <a href="{{route('admin.settings')}}" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>

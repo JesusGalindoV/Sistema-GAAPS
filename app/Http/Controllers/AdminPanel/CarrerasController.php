@@ -29,7 +29,8 @@ class CarrerasController extends Controller
         $data = $request->except('_token'); 
 
         $sicoesCarrera = new Carrera();
-        if ($instance) {
+
+        if ($instance->id) {
             $sicoesCarrera = Carrera::find($instance->CarreraId);
         }
 
@@ -37,7 +38,7 @@ class CarrerasController extends Controller
             $instance->$key = $value; 
 
             if ($key != "precio" && $key != "is_activa") {
-                  $sicoesCarrera->$key = $value; 
+                  $sicoesCarrera->$key = strtoupper($value); 
              }         
         }
 
@@ -58,7 +59,7 @@ class CarrerasController extends Controller
         } 
     }
 
-    public function show(Request $request)
+    public function datatable(Request $request)
     {
         $filter = $request->get('search') && isset($request->get('search')['value'])?$request->get('search')['value']:false;
         

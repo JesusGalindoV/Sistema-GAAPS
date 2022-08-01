@@ -24,9 +24,14 @@ use App\Models\Sicoes\PlanEstudio;
 use App\Models\Sicoes\Escuela;
 use App\Models\Sicoes\Periodo;
 use App\Models\Sicoes\EncGrupo;
+use App\Models\Sicoes\Division;
 use App\Library\Sicoes;
 use App\Library\Ticket as TicketLibrary;
 
+
+function getDiviciones() {
+    return Division::all();
+}
 
 /**
  * selecciona la configuracion.
@@ -137,7 +142,7 @@ function insertInscriptionDebit(User $user)
     $debit_array = [
         'debit_type_id' => 1,
         'description' => 'Aportacion a la calidad estudiantil',
-        'amount' => getPrecioPorCarrera(),
+        'amount' => getPrecioPorCarrera($alumnData->PlanEstudioId),
         'admin_id'=> 2,
         'id_alumno' => $user->id_alumno,
         'status' => 0,

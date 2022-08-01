@@ -79,16 +79,18 @@
           {"data": "Clave", "orderable": false},
           {"data": "Nombre"},
           {"data": "Abreviatura"},
-          {"data": "is_activa"},
+          {"data": "is_activa", "render": (data) => {
+            return data == 1 ? "Activa":"Inactiva";
+          }},
           {"data": "precio"},
           {"data": null, "orderable": null, "render": (data) => {
-              return "<div class='btn-group'><a href='{{route('admin.carreras.datatable')}}/"+data.CarreraId+"' title='Editar carrera' class='btn btn-warning'><i class='fa fa-edit'></i></a><button title='Eliminar' carrera_id='"data.CarreraId"' class='btn btn-danger btnEliminar'><i class='fa fa-times'></i></button></div>"
+              return "<div class='btn-group'><a href='{{route('admin.carreras.edit')}}/"+data.CarreraId+"' title='Editar carrera' class='btn btn-warning'><i class='fa fa-edit'></i></a><button title='Eliminar' carrera_id='"+data.CarreraId+"' class='btn btn-danger btnEliminar'><i class='fa fa-times'></i></button></div>";
           }}
       ],
       "language": datatableSpanish
   });
 
-  $(".tablaCarreras tbody").on("click","button.btnEliminar",function()
+  $("#tablaCarreras tbody").on("click","button.btnEliminar",function()
 {
     var id = $(this).attr("carrera_id");
     swal.fire({

@@ -43,6 +43,7 @@ class InsertIntoCarreras implements ShouldQueue
             $nuevaCarrera->Nombre = $item->Nombre;
             $nuevaCarrera->Abreviatura = $item->Abreviatura;
             $nuevaCarrera->is_activa = 1;
+            $nuevaCarrera->DivisionId = $item->DivisionId;
             $nuevaCarrera->precio = getConfig()->price_inscription;
             $nuevaCarrera->save();
 
