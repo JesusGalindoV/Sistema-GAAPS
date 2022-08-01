@@ -182,10 +182,13 @@ class Sicoes {
             if ($carrera) {
                 if ($carrera->is_activa == 1) {
                     $plan = PlanEstudio::where("CarreraId", $value->CarreraId)->first();
-                    array_push($planesO, [
-                        "Nombre" => $carrera->Nombre,
-                        "PlanEstudioId" => $plan->PlanEstudioId
-                    ]);
+
+                    if ($plan) {
+                        array_push($planesO, [
+                            "Nombre" => $carrera->Nombre,
+                            "PlanEstudioId" => $plan->PlanEstudioId
+                        ]);
+                    }    
                 }
             }
     
