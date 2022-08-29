@@ -7,6 +7,7 @@ use App\Models\Sicoes\EncGrupo;
 use App\Models\Sicoes\Carrera;
 use App\Models\Sicoes\Periodo;
 use App\Models\Sicoes\Carga;
+use App\Models\CarreraModel;
 use DB;
 
 class Sicoes {
@@ -173,8 +174,27 @@ class Sicoes {
      * @return array
      */
     public static function carrerasActivas() {
-        $planes = Carrera::whereNotIn("CarreraId", [8,4,7,9])->get();
-        return $planes;
+        $carreras = Carrera::all();
+        $planesO = [];
+        foreach($carreras as $key => $value) {
+            $carrera = CarreraModel::find($value->CarreraId);
+
+            if ($carrera) {
+                if ($carrera->is_activa == 1) {
+                    $plan = PlanEstudio::where("CarreraId", $value->CarreraId)->first();
+
+                    if ($plan) {
+                        array_push($planesO, [
+                            "Nombre" => $carrera->Nombre,
+                            "PlanEstudioId" => $plan->PlanEstudioId
+                        ]);
+                    }    
+                }
+            }
+    
+        }
+
+        return $planesO;
     }
 
     public static function currentGroup($id_alumno) {
@@ -214,10 +234,6 @@ class Sicoes {
     }
 	
 	public static function constructAlumnArray($data) {
-
-		$planEstudio = PlanEstudio::where("CarreraId", $data["Carrera"])
-                        ->orderBy("PlanEstudioId", "desc")
-                        ->first();
 		//Edad, el plan de estudio
         $aux = abs(strtotime(date('Y-m-d')) - strtotime($data["FechaNacimiento"]));
         $edad = intval(floor($aux / (365*60*60*24)));
@@ -280,7 +296,7 @@ class Sicoes {
             'ActaNacimiento' => 0,
             'CertificadoBachillerato' => 0,
             'Baja' => 0,
-            'PlanEstudioId' => $planEstudio->PlanEstudioId,
+            'PlanEstudioId' => $data["Carrera"],
             'CirugiaMayor' => 0,
             'CirugiaMenor' => 0,
             'Hijo' => 0,

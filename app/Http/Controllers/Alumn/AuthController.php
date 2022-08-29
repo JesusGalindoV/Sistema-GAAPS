@@ -37,8 +37,8 @@ class AuthController extends Controller
         {
             return redirect()->route('alumn.home');
         }
-        session()->flash('messages', 'error|El password es incorrecto');
         
+        session()->flash('messages', 'error|El password es incorrecto');        
         return redirect()->back()->withInput();
     }
 
@@ -58,6 +58,7 @@ class AuthController extends Controller
     {
         //buscamos el usuario por el email
         $user = User::where('email', '=', $request->email)->first();
+
         if(!$user) {
             session()->flash("messages","error|No existe un usuario con este correo");
             return redirect()->back();
@@ -71,8 +72,7 @@ class AuthController extends Controller
 
             $RequestPass = new PasswordRequest();
             $RequestPass->token = uniqid();
-            $RequestPass->alumn_id = $user->id;
-            $RequestPass->save(); 
+            $RequestPass->alumn_id = $user->id; 
 
             $data = [
                 'name' => $user->name,
@@ -84,12 +84,11 @@ class AuthController extends Controller
 
             Mail::to($to)->queue(new ResetPassword($subject,$data));  
 
+            $RequestPass->save();
             session()->flash("messages","success|Se envio un link a tu correo");
             return redirect()->route("alumn.login");
-        }
-        catch (\Exception $e)
-        {
-            session()->flash("messages","error|Ya tienes una solicitud enviada");
+        } catch (\Exception $e) {
+            session()->flash("messages","error|Ocurrió un problema al enviar el correo");
             return redirect()->back();
         }    
     } 

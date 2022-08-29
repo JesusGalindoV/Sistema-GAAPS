@@ -858,6 +858,44 @@ Route::group(['domain' => $alumnDomain], function() {
 						'as' => 'notify'
 				]);	
 
+				//carreras
+				Route::group(["prefix" => "carreras"], function() {
+					Route::get('/', [
+				        'uses' => 'CarrerasController@index', 
+				        'as' => 'carreras'
+					]);
+
+					Route::post('/show', [
+				        'uses' => 'CarrerasController@show', 
+				        'as' => 'carreras.show'
+					]);
+
+					Route::get('/create/user', [
+				        'uses' => 'CarrerasController@create', 
+				        'as' => 'carreras.create'
+					]);
+
+					Route::get('/edit/user/{id?}', [
+				        'uses' => 'CarrerasController@edit', 
+				        'as' => 'carreras.edit'
+					]);
+
+					Route::post('/create/save/{instance?}', [
+				        'uses' => 'CarrerasController@save', 
+				        'as' => 'carreras.save'
+					]);
+
+					Route::get('/delete/{id?}', [
+				        'uses' => 'CarrerasController@delete', 
+				        'as' => 'carreras.delete'
+					]);
+
+					Route::post("/datatable", [
+						"uses" => "CarrerasController@datatable",
+						"as" => "carreras.datatable"
+					]);
+				});
+
 				Route::group(["prefix" => "ticket"], function() {
 					Route::get("/", [
 						"uses" => "TicketsController@index",
