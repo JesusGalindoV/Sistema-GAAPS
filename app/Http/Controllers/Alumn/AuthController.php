@@ -5,6 +5,9 @@ use Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alumns\User;
+
+use App\Models\AdminUsers\AdminUser;
+
 use App\Models\AdminUsers\RequestPass;
 use App\Models\Alumns\PasswordRequest;
 use Mail;
@@ -28,15 +31,38 @@ class AuthController extends Controller
 
         $user = User::where('email', "=" ,$email)->first();
 
-        if (!$user) {
+        $adminUser = AdminUser::where([['email', "=" ,$email],['area_id',"=","4"]])->first();
+
+        $financeUser = AdminUser::where('email', "=" ,$email)->first();
+
+
+        if (!$user && !$adminUser && !$financeUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
         }
 
+        //USUARIO ALUMNO
         if (Auth::guard('alumn')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
         {
             return redirect()->route('alumn.home');
         }
+
+        //USUARIOS FINANZAS
+
+        if ($financeUser->area_id == 2) {       
+
+            if (Auth::guard('finance')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+            {
+                return redirect()->route('finance.home');
+            }
+            
+        }
+
+         //USUARIO ADMINISTRADOR
+         if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+         {
+             return redirect()->route('admin.home');
+         }
         
         session()->flash('messages', 'error|El password es incorrecto');        
         return redirect()->back()->withInput();
