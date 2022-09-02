@@ -6,7 +6,7 @@ $alumnDomain  =  env('ALUMN_DOMAIN');
 
 Route::group(['domain' => $alumnDomain], function() {
 
-	Route::group(['prefix'=> 'alumn', 'namespace'=>'Alumn'], function()
+	Route::group(['prefix'=> 'portal', 'namespace'=>'Alumn'], function()
 	{
 	  	Route::name('alumn.')->group(function()
 	  	{
