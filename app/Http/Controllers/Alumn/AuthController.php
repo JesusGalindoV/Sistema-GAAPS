@@ -46,7 +46,7 @@ class AuthController extends Controller
     {
         Auth::guard('alumn')->logout();
         session()->flush();
-        return redirect('/');
+        return redirect()->route("alumn.login");
     }
 
     public function requestRestorePass() 
