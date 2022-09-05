@@ -80,7 +80,7 @@ class AuthController extends Controller
             ];
 
             $subject = 'Restablecer Cuenta';
-            $to = $user->id_alumno != null ? [$user->email, strtolower($user->getSicoesData()["Email"])] : $user->email;
+            $to = $user->id_alumno != null ? [$user->email, strtolower($user->sAlumn->Email)] : $user->email;
 
             Mail::to($to)->queue(new ResetPassword($subject,$data));  
 
@@ -88,6 +88,7 @@ class AuthController extends Controller
             session()->flash("messages","success|Se envio un link a tu correo");
             return redirect()->route("alumn.login");
         } catch (\Exception $e) {
+            // dd($e);
             session()->flash("messages","error|Ocurrió un problema al enviar el correo");
             return redirect()->back();
         }    
