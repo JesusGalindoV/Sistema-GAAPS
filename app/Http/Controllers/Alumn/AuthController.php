@@ -33,16 +33,7 @@ class AuthController extends Controller
 
         $adminUser = AdminUser::where('email', "=" ,$email)->first();
 
-        $departamentUser = AdminUser::where('email', "=" ,$email)
-        ->orWhere("is_departament", 1)
-        ->first();
-
-        //->whereIn('id', [1, 2, 3])
-
-        dd($departamentUser);
-
-
-        if (!$user && !$adminUser && !$departamentUser) {
+        if (!$user && !$adminUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
         }else{
@@ -76,16 +67,7 @@ class AuthController extends Controller
 
                 session()->flash('messages', 'error|El password es incorrecto');        
                 return redirect()->back()->withInput();
-
-            }else if ($departamentUser->area_id == 1){
-                //USUARIOS DEPARTAMENTO DE COMPUTO Y BIBLIOTECA
-                if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0))) {
-                    return redirect()->route('departament.home');
-                }
-
-                session()->flash('messages', 'error|El password es incorrecto');        
-                return redirect()->back()->withInput();
-            }
+            } //fin else if
         }
 
     }
