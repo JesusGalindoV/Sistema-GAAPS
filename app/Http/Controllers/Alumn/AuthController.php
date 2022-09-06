@@ -39,9 +39,14 @@ class AuthController extends Controller
         }
 
         //USUARIO ALUMNO
-        if (Auth::guard('alumn')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-        {
-            return redirect()->route('alumn.home');
+        if($user){
+            if (Auth::guard('alumn')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+            {
+                return redirect()->route('alumn.home');
+            }
+
+            session()->flash('messages', 'error|El password es incorrecto');        
+            return redirect()->back()->withInput();
         }
 
         if ($adminUser->area_id == 4) {
@@ -64,9 +69,6 @@ class AuthController extends Controller
             session()->flash('messages', 'error|El password es incorrecto');        
             return redirect()->back()->withInput();
         }
-
-        session()->flash('messages', 'error|El password es incorrecto');        
-        return redirect()->back()->withInput();
 
     }
 
