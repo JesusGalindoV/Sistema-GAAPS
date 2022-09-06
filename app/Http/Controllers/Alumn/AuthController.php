@@ -35,7 +35,7 @@ class AuthController extends Controller
 
         $financeUser = AdminUser::where('email', "=" ,$email)->first();
 
-        if (!$user && !$adminUser && !$financeUser && !$userDepartament) {
+        if (!$user && !$adminUser && !$financeUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
         }
