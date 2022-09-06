@@ -36,6 +36,7 @@ class AuthController extends Controller
         if (!$user && !$adminUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
+            
         }else{
             //USUARIO ALUMNO
             if($user){
@@ -46,6 +47,7 @@ class AuthController extends Controller
 
                 session()->flash('messages', 'error|El password es incorrecto');        
                 return redirect()->back()->withInput();
+
             }
 
             if ($adminUser->area_id == 4) {
@@ -67,7 +69,17 @@ class AuthController extends Controller
 
                 session()->flash('messages', 'error|El password es incorrecto');        
                 return redirect()->back()->withInput();
-            } //fin else if
+
+            } else if ($adminUser->is_departament == 1){
+                //USUARIOS DEPARTAMENTO BIBLIOTECA Y COMPUTO
+                if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+                {
+                    return redirect()->route('departament.home');
+                }
+
+                session()->flash('messages', 'error|El password es incorrecto');        
+                return redirect()->back()->withInput();
+            } //fin else if 
         }
 
     }
