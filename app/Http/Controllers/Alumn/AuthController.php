@@ -37,6 +37,11 @@ class AuthController extends Controller
         ->orWhere("is_departament", 1)
         ->first();
 
+        //->whereIn('id', [1, 2, 3])
+
+        dd($departamentUser);
+
+
         if (!$user && !$adminUser && !$departamentUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
