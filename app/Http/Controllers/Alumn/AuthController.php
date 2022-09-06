@@ -40,48 +40,47 @@ class AuthController extends Controller
         if (!$user && !$adminUser && !$departamentUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
-        }
+        }else{
+            //USUARIO ALUMNO
+            if($user){
+                if (Auth::guard('alumn')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+                {
+                    return redirect()->route('alumn.home');
+                }
 
-        //USUARIO ALUMNO
-        if($user){
-            if (Auth::guard('alumn')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-            {
-                return redirect()->route('alumn.home');
+                session()->flash('messages', 'error|El password es incorrecto');        
+                return redirect()->back()->withInput();
             }
 
-            session()->flash('messages', 'error|El password es incorrecto');        
-            return redirect()->back()->withInput();
-        }
+            if ($adminUser->area_id == 4) {
+                //USUARIO ADMINISTRADOR
+                if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+                {
+                    return redirect()->route('admin.home');
+                }
 
-        if ($adminUser->area_id == 4) {
-            //USUARIO ADMINISTRADOR
-            if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-            {
-                return redirect()->route('admin.home');
+                session()->flash('messages', 'error|El password es incorrecto');        
+                return redirect()->back()->withInput();
+
+            }else if ($adminUser->area_id == 2){
+                //USUARIOS FINANZAS     
+                if (Auth::guard('finance')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+                {
+                    return redirect()->route('finance.home');
+                }
+
+                session()->flash('messages', 'error|El password es incorrecto');        
+                return redirect()->back()->withInput();
+
+            }else if ($departamentUser->area_id == 1){
+                //USUARIOS DEPARTAMENTO DE COMPUTO Y BIBLIOTECA
+                if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0))) {
+                    return redirect()->route('departament.home');
+                }
+
+                session()->flash('messages', 'error|El password es incorrecto');        
+                return redirect()->back()->withInput();
             }
-
-            session()->flash('messages', 'error|El password es incorrecto');        
-            return redirect()->back()->withInput();
-
-        }else if ($adminUser->area_id == 2){
-            //USUARIOS FINANZAS     
-            if (Auth::guard('finance')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-            {
-                return redirect()->route('finance.home');
-            }
-
-            session()->flash('messages', 'error|El password es incorrecto');        
-            return redirect()->back()->withInput();
-
-        }else if ($departamentUser->area_id == 1){
-            //USUARIOS DEPARTAMENTO DE COMPUTO Y BIBLIOTECA
-            if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0))) {
-                return redirect()->route('departament.home');
-            }
-
-            session()->flash('messages', 'error|El password es incorrecto');        
-            return redirect()->back()->withInput();
-
         }
 
     }
