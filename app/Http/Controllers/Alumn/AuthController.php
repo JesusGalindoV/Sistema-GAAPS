@@ -35,8 +35,14 @@ class AuthController extends Controller
 
         $financeUser = AdminUser::where('email', "=" ,$email)->first();
 
+        // $userDepartament = AdminUser::where('email', "=", $email)
+        //         ->where("is_departament", 1)
+        //         ->first();
 
-        if (!$user && !$adminUser && !$financeUser) {
+        $userDepartament = AdminUser::where([['email', "=" ,$email],['is_departament',"=","1"]])->first();
+
+
+        if (!$user && !$adminUser && !$financeUser && !$userDepartament) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
         }
@@ -58,11 +64,21 @@ class AuthController extends Controller
             
         }
 
-         //USUARIO ADMINISTRADOR
-         if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-         {
-             return redirect()->route('admin.home');
-         }
+        //USUARIO ADMINISTRADOR
+        if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+        {
+            return redirect()->route('admin.home');
+        }
+
+         //usuario de departamento
+        if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0))) 
+        {
+            return redirect()->route('departament.home');
+        }
+
+
+
+
         
         session()->flash('messages', 'error|El password es incorrecto');        
         return redirect()->back()->withInput();
