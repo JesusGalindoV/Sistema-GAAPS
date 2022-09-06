@@ -40,6 +40,9 @@ class AuthController extends Controller
             return redirect()->back()->withInput();
         }
 
+        session()->flash('messages', 'error|El password es incorrecto');        
+        return redirect()->back()->withInput();
+
         //USUARIO ALUMNO
         if (Auth::guard('alumn')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
         {
@@ -63,8 +66,6 @@ class AuthController extends Controller
             return redirect()->route('admin.home');
         }
 
-        session()->flash('messages', 'error|El password es incorrecto');        
-        return redirect()->back()->withInput();
     }
 
     public function logout(Request $request)
