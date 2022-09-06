@@ -31,12 +31,9 @@ class AuthController extends Controller
 
         $user = User::where('email', "=" ,$email)->first();
 
-        $financeUser = AdminUser::where('email', "=" ,$email)->first();
+        $adminUser = AdminUser::where('email', "=" ,$email)->first();
 
-        $adminUser = AdminUser::where([['email', "=" ,$email],['area_id',"=","4"]])->first();
-
-
-        if (!$user && !$adminUser && !$financeUser) {
+        if (!$user && !$adminUser) {
             session()->flash('messages', 'error|No Existe un usuario con ese correo');
             return redirect()->back()->withInput();
         }
@@ -47,17 +44,18 @@ class AuthController extends Controller
             return redirect()->route('alumn.home');
         }
 
-        //USUARIO ADMINISTRADOR
-        if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-        {
-            return redirect()->route('admin.home');
-        }
-
-        //USUARIOS FINANZAS     
-
-        if (Auth::guard('finance')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-        {
-            return redirect()->route('finance.home');
+        if ($adminUser->area_id == 4) {
+            //USUARIO ADMINISTRADOR
+            if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+            {
+                return redirect()->route('admin.home');
+            }
+        }else if ($adminUser->area_id == 2){
+            //USUARIOS FINANZAS     
+            if (Auth::guard('finance')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
+            {
+                return redirect()->route('finance.home');
+            }
         }
 
         session()->flash('messages', 'error|El password es incorrecto');        
