@@ -15,8 +15,8 @@ Route::group(['domain' => $alumnDomain], function() {
 				Route::get('/sign-in',[
 					'uses' => 'AuthController@login', 
 					'as' => 'login'
-				]);
-			});	  		
+				]); //asd
+			});	  				
 
 		    Route::post('/sign-in',[
 		        'uses' => 'AuthController@postLogin', 
