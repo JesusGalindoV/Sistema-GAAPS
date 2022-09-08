@@ -286,7 +286,7 @@
 
                           <div class="inner">
 
-                            <h3>Carga Académica</h3>
+                            <h3>Kardex</h3>
 
                             <p>¡Revisala!</p>
 
