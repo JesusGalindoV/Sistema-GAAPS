@@ -150,8 +150,8 @@ class AccountController extends Controller
             $user->password = bcrypt($request->input("password"));
             $user->save(); 
             $this->logger->info("Proceso de alta de alumno de nuevo ingreso realizado con exito");
-            session()->flash("messages", 'success|Su registro se realizó con éxito|De click en el botón Acceso Nuevo Ingreso (Color Naranja ) para iniciar sesión');
-            return redirect()->back(); 
+            session()->flash("messages", 'success|Su registro se realizó con éxito, ingresa tu correo y contraseña para iniciar sesión.');
+            return redirect()->route('alumn.login'); 
         } catch(\Exception $e) {
            session()->flash("messages","error|Opps, ocurrió un problema que no esperabamos.");
            return redirect()->back(); 
