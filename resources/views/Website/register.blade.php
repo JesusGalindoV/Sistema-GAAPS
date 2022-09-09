@@ -182,7 +182,7 @@
 
 								  	<label class="field a-field a-field_a2">
 
-									    <input type="text" class="field__input a-field__input capitalize" maxlength="18" min="18" placeholder="e.g ROCE000131HNLDNDA9" id="curp" name="curp" onblur="aMayusculas(this.value,this.id)" required>
+									    <input type="text" class="field__input a-field__input capitalize" placeholder="e.g ROCE000131HNLDNDA9" id="curp" name="curp" onblur="aMayusculas(this.value,this.id)" required  minlength="18" maxlength="18" pattern=".{18,}" title="e.g ROCE000131HNLDNDA9 (18 caracteres)." >
 
 									    <span class="a-field__label-wrap">
 
