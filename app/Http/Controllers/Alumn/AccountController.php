@@ -71,6 +71,7 @@ class AccountController extends Controller
                     $user->name = normalizeChars($data->Nombre);
                     $user->lastname = normalizeChars($data->ApellidoPrimero." ".$data->ApellidoSegundo);
                     $user->email = $request->input('email');
+                    $user->curp = $request->input('curp');
                     $user->password = bcrypt($request->input("password"));
                     $user->id_alumno = $data->AlumnoId;
                     $user->save();
@@ -108,6 +109,7 @@ class AccountController extends Controller
 
         $request->validate([
             'email' => 'required',
+            'curp' => 'required',
             'password' => 'required',
             'name'=>'required',
             'lastname'=>'required'
@@ -119,10 +121,21 @@ class AccountController extends Controller
         $this->logger->info("Se valida que no exista correo en portal");
         //validar que un correo no exista.
         $validate = User::where("email","=", $request->input("email"))->first();
+        
+        //validar que un curp no exista
+        $this->logger->info("Se valida que no exista curp en portal");
+        $validateCurp = User::where("curp","=", $request->input("curp"))->first();
+
 
         if($validate) {
             $this->logger->info("El correo " . $validate->email . " ya se encuentra registrado");
             session()->flash("messages","error|El correo ".$request->input("email")." ya esta registrado");
+            return redirect()->back()->withInput();
+        }
+
+        if($validateCurp){
+            $this->logger->info("El curp " . $validateCurp->curp . " ya se encuentra registrado");
+            session()->flash("messages","error|El curp ".$request->input("curp")." ya esta registrado");
             return redirect()->back()->withInput();
         }
 
@@ -133,6 +146,7 @@ class AccountController extends Controller
             $user->name = normalizeChars($request->input("name"));
             $user->lastname = normalizeChars($request->input("lastname"));
             $user->email = $request->input("email");
+            $user->curp = $request->input("curp");
             $user->password = bcrypt($request->input("password"));
             $user->save(); 
             $this->logger->info("Proceso de alta de alumno de nuevo ingreso realizado con exito");
