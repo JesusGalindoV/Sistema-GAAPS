@@ -22,7 +22,8 @@ class WebsiteController extends Controller
 	public function index()
 	{
         $this->logger->info("Hola mudno");
-		return view('Website.register');
+		// return view('Website.register');
+        return redirect()->route("alumn.login");
 	}
 
     public function inMaintenance()
