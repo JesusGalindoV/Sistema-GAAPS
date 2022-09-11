@@ -26,6 +26,10 @@ class WebsiteController extends Controller
         return redirect()->route("alumn.login");
 	}
 
+    public function register(){
+        return view('Website.register');
+    }
+
     public function inMaintenance()
 	{
 		return view('Website.maintenance');

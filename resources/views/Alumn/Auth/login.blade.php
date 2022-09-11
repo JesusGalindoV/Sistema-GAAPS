@@ -122,12 +122,22 @@
 
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <p class="parrafo-login text-center">¿Aun no tienes cuenta?</p>
                             </div>
                             <div class="col-md-12">
                                 <center><a href="{{route('alumn.users.first_step')}}" class="btn boton-success">Activar</a></center>
+                            </div>
+                        </div> -->
+
+                        <!-- REGISTRO DE NUEVO INGRESO -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="parrafo-login text-center">¿Nuevo Ingreso?</p>
+                            </div>
+                            <div class="col-md-12">
+                                <center><a href="{{route('alumn.register')}}" class="btn boton-success">Registrarse</a></center>
                             </div>
                         </div>
 

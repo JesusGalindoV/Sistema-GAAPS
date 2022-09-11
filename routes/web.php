@@ -22,6 +22,12 @@ Route::group(['domain' => $alumnDomain], function() {
 		        'uses' => 'AuthController@postLogin', 
 			]); 
 
+			//REGRESA FORMULARIO PARA NUEVO INGRESO
+			Route::get('/registerAlumn',[
+				'uses' => 'WebsiteController@register', 
+				'as' => 'register'
+			]);
+
 			//te lleva  a a la vista para enviar la peticion de restaurar pass
 			Route::get('/restore-pass',[
 		        'uses' => 'AuthController@requestRestorePass', 
