@@ -8,7 +8,7 @@
 
     <div class="back2">
 
-        <div class="row" style="margin: 1%; width: 100%">
+        <div class="row" style="width: 100%">
 <!-- 
             <div class="col-lg-8 col-md-12">
 
