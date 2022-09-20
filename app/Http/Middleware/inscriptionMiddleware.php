@@ -11,7 +11,7 @@ class inscriptionMiddleware
     {
         if (Auth::guard("alumn")->user()->inscripcion != 0) {
             $path = $request->path();
-            return redirect("alumn/payment");
+            return redirect("portal/payment");
         }
         return $next($request);
     }

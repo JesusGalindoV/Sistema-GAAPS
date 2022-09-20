@@ -12,6 +12,10 @@
 		align-items: center;
 	}
 
+	.capitalize{
+		text-transform: uppercase !important;
+	}
+
 	@media (min-height: 768px) { 
 
 		.btns-row{
@@ -169,7 +173,32 @@
 
 							</div>
 
-							<div class="col-md-12">
+
+							<!-- INGRESO DE CURP -->
+
+							<div class="col-md-6">
+								
+								<div class="input-group mb-3">
+
+								  	<label class="field a-field a-field_a2">
+
+									    <input type="text" class="field__input a-field__input capitalize" placeholder="e.g ROCE000131HNLDNDA9" id="curp" name="curp" onblur="aMayusculas(this.value,this.id)" required  minlength="18" maxlength="18" pattern=".{18,}" title="e.g ROCE000131HNLDNDA9 (18 caracteres)." >
+
+									    <span class="a-field__label-wrap">
+
+									        <span class="a-field__label">Curp</span>
+
+									    </span>
+
+									</label> 
+
+								</div>
+
+							</div>
+
+							<!-- INGRESO DE CURP -->
+
+							<div class="col-md-6">
 								
 								<div class="input-group mb-3">
 
@@ -283,6 +312,12 @@
             @endforeach
         @endif
     });
+
+	function aMayusculas(obj,id){
+    	obj = obj.toUpperCase();
+    	document.getElementById(id).value = obj;
+	}
+
 </script>
 
 <script src="{{asset('js/website/home.js')}}"></script>

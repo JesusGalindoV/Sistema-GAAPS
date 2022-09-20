@@ -269,7 +269,7 @@ class Sicoes {
             'EstadoDom' => array_key_exists("EstadoDom",$data)?$data["EstadoDom"]:null,
             'CodigoPostal' => array_key_exists("CodigoPostal",$data)?$data["CodigoPostal"]:null,
             'Telefono' => array_key_exists("Telefono",$data)?$data["Telefono"]:null,
-            'Email' => array_key_exists("Email",$data)?$data["Email"]:null,
+            'E' => array_key_exists("Email",$data)?$data["Email"]:null,
             'EscuelaProcedenciaId' => array_key_exists("EscuelaProcedenciaId",$data)?$data["EscuelaProcedenciaId"]:null,
             'AnioEgreso' => array_key_exists("AnioEgreso",$data)?$data["AnioEgreso"]:null,
             'PromedioBachiller' => array_key_exists("PromedioBachiller",$data)?$data["PromedioBachiller"]:null,

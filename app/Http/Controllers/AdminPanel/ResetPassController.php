@@ -61,7 +61,7 @@ class ResetPassController extends Controller
                 'new_pass' => $newPass,
             ];
             $subject = 'Restablecer Cuenta';
-            $to = $user->id_alumno != null ? [$user->email, $user->getSicoesData()["Email"]] : $user->email;
+            $to = $user->id_alumno != null ? [$user->email, $user->Data()["Email"]] : $user->email;
 
             Mail::to($user->email)->queue(new ResetPassword($subject,$data));             
 
