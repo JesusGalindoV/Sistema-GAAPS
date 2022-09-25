@@ -46,6 +46,6 @@ class AuthController extends Controller
     {
         Auth::guard('departament')->logout();
         session()->flush();
-        return redirect()->route("alumn.login");
+        return redirect('/departaments');
     }
 }
