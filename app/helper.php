@@ -428,9 +428,9 @@ function upload_image($file,$subfolder, $id) {
 function isNoob($id) {
     $user = User::find($id);
     if ($user->id_alumno == null) {
-        return "/portal/inscripcion";
+        return "/alumn/inscripcion";
     } else {
-        return "/portal/re-inscripcion";
+        return "/alumn/re-inscripcion";
     }
 }
 
