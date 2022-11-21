@@ -1,6 +1,6 @@
 .login-form {
     width: 350px;
-    margin-top: 15vh;
+    margin-top: 5vh;
     margin-right: auto;
     margin-left: auto;  
 }
@@ -261,6 +261,17 @@ header
     left: 5%;
 }
 
+.osos_alfa_login
+{
+    display: block;
+    margin: 0px auto;
+    width: 85px;
+}
+
+.feel-title{
+    color: #fff;
+}
+
 .card-custom
 {
     margin-top: 2vh;
@@ -397,6 +408,15 @@ header
 .osos-title
 {
     margin-top: 2vh;
+    color: white;
+}
+
+.osos-title2
+{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    position: fixed;
+    left: 2%;
     color: white;
 }
 
@@ -729,6 +749,16 @@ td{
   .feed
   {
     margin-left: 5% !important;
+  }
+}
+
+@media(max-width: 400px)
+{
+  .login-form
+  {
+    width: 85%;
+    margin-left: 7%;
+    margin-top: 8vh;
   }
 }
 

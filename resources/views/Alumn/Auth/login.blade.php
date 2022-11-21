@@ -8,7 +8,7 @@
 
     <div class="back2">
 
-        <div class="row" style="margin: 1%; width: 100%">
+        <div class="row" style="width: 100%">
 <!-- 
             <div class="col-lg-8 col-md-12">
 
@@ -74,13 +74,25 @@
 
             </div> -->
 
+                <div class="col-md-12 osos-title2">
+					<h1 class="feel-title">#Portal Osos Unisierra</h1>
+				</div>
+
+
             <div class="col-lg-12 col-md-12">
+
 
                 <div class="login-form">
 
                     <form action="" method="post">
 
                         {{ csrf_field() }}
+
+                        <div class="col-md-12">
+
+					        <img src="{{asset('img/temple/unisierra.png')}}" alt='Logo Unisierra' class="osos_alfa_login">
+
+				        </div>
 
                         <h2 class="text-center">Iniciar sesión</h2>  
 
@@ -122,17 +134,27 @@
 
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <p class="parrafo-login text-center">¿Aun no tienes cuenta?</p>
                             </div>
                             <div class="col-md-12">
                                 <center><a href="{{route('alumn.users.first_step')}}" class="btn boton-success">Activar</a></center>
                             </div>
+                        </div> -->
+
+                        <!-- REGISTRO DE NUEVO INGRESO -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="parrafo-login text-center">¿Nuevo Ingreso?</p>
+                            </div>
+                            <div class="col-md-12">
+                                <center><a href="{{route('alumn.register')}}" class="btn boton-success">Registrarse</a></center>
+                            </div>
                         </div>
 
                         <div class=" text-center"  style="margin-top: 25px; margin-bottom: -15px;">
-                            <a href="{{route('alumn.RequestRestorePass')}}" style="text-decoration:underline; color:#fd7e14;">Olvidé mi contraseña</a>
+                            <a href="{{route('alumn.RequestRestorePass')}}" style="text-decoration:underline; color:#fd7e14; font-weight: bold;">Olvidé mi contraseña</a>
                         </div>
 
                     </form> 

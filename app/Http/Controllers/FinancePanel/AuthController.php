@@ -54,6 +54,6 @@ class AuthController extends Controller
     {
         Auth::guard('finance')->logout();
         session()->flush();
-        return redirect('/finance');
+        return redirect()->route("alumn.login");
     }
 }

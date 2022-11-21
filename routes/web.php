@@ -6,7 +6,7 @@ $alumnDomain  =  env('ALUMN_DOMAIN');
 
 Route::group(['domain' => $alumnDomain], function() {
 
-	Route::group(['prefix'=> 'alumn', 'namespace'=>'Alumn'], function()
+	Route::group(['prefix'=> 'portal', 'namespace'=>'Alumn'], function()
 	{
 	  	Route::name('alumn.')->group(function()
 	  	{
@@ -15,12 +15,18 @@ Route::group(['domain' => $alumnDomain], function() {
 				Route::get('/sign-in',[
 					'uses' => 'AuthController@login', 
 					'as' => 'login'
-				]);
-			});	  		
+				]); 
+			});	  				
 
 		    Route::post('/sign-in',[
 		        'uses' => 'AuthController@postLogin', 
 			]); 
+
+			//REGRESA FORMULARIO PARA NUEVO INGRESO
+			Route::get('/registerAlumn',[
+				'uses' => 'WebsiteController@register', 
+				'as' => 'register'
+			]);
 
 			//te lleva  a a la vista para enviar la peticion de restaurar pass
 			Route::get('/restore-pass',[

@@ -24,14 +24,14 @@
 	var itemTemplate = "<a href='#url' class='dropdown-item'><i class='fas fa-th mr-2'></i><span>#text</span></a>";
 
 	function loadNotify() {
-		$.get("/alumn/notify/show", function(response) {
+		$.get("/portal/notify/show", function(response) {
 			$("#content-notify").empty();        
 	        if (response.length == 0) {
 	            $("#content-notify").append("<p style='text-align: center; margin: 5%;'>No hay notificaciones</p>");
 	        } else {
 	            $(".count-notify").text(response.length);  
 	            for (var i = 0; i < response.length; i++) {
-	              $("#content-notify").append("<a href='/alumn/notify/"+response[i]["route"]+"/"+response[i]["id_target"]+"' class='dropdown-item'>"+
+	              $("#content-notify").append("<a href='/portal/notify/"+response[i]["route"]+"/"+response[i]["id_target"]+"' class='dropdown-item'>"+
 	                "<i class='fas fa-th mr-2'></i>"+response[i]['text']+
 	                "<span class='float-right text-muted text-sm'>Reciente</span>"+
 	              "</a>");

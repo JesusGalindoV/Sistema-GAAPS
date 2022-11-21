@@ -12,6 +12,10 @@
 		align-items: center;
 	}
 
+	.capitalize{
+		text-transform: uppercase !important;
+	}
+
 	@media (min-height: 768px) { 
 
 		.btns-row{
@@ -19,6 +23,30 @@
 		}
 		
 	}
+
+	button[disabled]{
+  		background-color: #cccccc !important;
+  		color: #8a8a8a;
+	}
+
+	#resultado {
+<<<<<<< HEAD
+    	/* background-color: red; */
+=======
+>>>>>>> a0f6d5f1f81bc5ef2ba08997aca612c1c8e6f229
+		width: 95%;
+    	color: white;
+    	font-weight: bold;
+	}
+	
+	#resultado.ok {
+    	background-color: green;
+	}
+
+	#btnGuardar.disabled {
+		background-color: #8a8a8a;
+	}
+
 </style>
 
 <div class="back2">
@@ -169,7 +197,34 @@
 
 							</div>
 
-							<div class="col-md-12">
+
+							<!-- INGRESO DE CURP -->
+
+							<div class="col-md-6">
+								
+								<div class="input-group mb-3">
+
+								  	<label class="field a-field a-field_a2">
+
+									    <input type="text" class="field__input a-field__input capitalize" placeholder="e.g ROCE000131HNLDNDA9" id="curp" name="curp" oninput="validarInput(this)" onblur="aMayusculas(this.value,this.id)" required  minlength="18" maxlength="18" pattern=".{18,}" title="e.g ROCE000131HNLDNDA9 (18 caracteres)." >
+										
+									    <span class="a-field__label-wrap">
+
+									        <span class="a-field__label">Curp</span>
+
+									    </span>
+
+									</label> 
+
+									<pre id="resultado"></pre>
+
+								</div>
+
+							</div>
+
+							<!-- INGRESO DE CORREO -->
+
+							<div class="col-md-6">
 								
 								<div class="input-group mb-3">
 
@@ -237,7 +292,7 @@
 
 						<div class="col-md-12">
 
-							<button type="button" class="btn btn-primary btn-block boton sent">Guardar</button>
+							<button type="button" class="btn btn-primary btn-block boton sent" id='btnGuardar' disabled>Guardar</button>
 							
 						</div>
 
@@ -256,12 +311,12 @@
 				 Acceso
 				 Alumnos
 				</a>
-				<a href="{{route('alumn.home')}}" 
+				<!-- <a href="{{route('alumn.home')}}" 
 						class="btn btn-warning btn-lg btn-block button-custom my-2 my-sm-0" 
 						style="color: white; border-radius: 20px;  margin:0rem 2rem; font-weight: 900;font-size: 20px;">
 				Acesso Nuevo
 				Ingreso
-				</a>
+				</a> -->
 			</div>
 
 		</div>
@@ -283,6 +338,65 @@
             @endforeach
         @endif
     });
+
+	function aMayusculas(obj,id){
+    	obj = obj.toUpperCase();
+    	document.getElementById(id).value = obj;
+	}
+
+
+	function curpValida(curp) {
+    	var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
+        	validado = curp.match(re);
+	
+    	if (!validado)  //Coincide con el formato general?
+    		return false;
+    
+    	//Validar que coincida el dígito verificador
+    	function digitoVerificador(curp17) {
+        	//Fuente https://consultas.curp.gob.mx/CurpSP/
+        	var diccionario  = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ",
+            	lngSuma      = 0.0,
+            	lngDigito    = 0.0;
+        	for(var i=0; i<17; i++)
+            	lngSuma = lngSuma + diccionario.indexOf(curp17.charAt(i)) * (18 - i);
+        		lngDigito = 10 - lngSuma % 10;
+        	if (lngDigito == 10) return 0;
+        		return lngDigito;
+    	}
+  
+    	if (validado[2] != digitoVerificador(validado[1])) 
+    		return false;
+        
+    	return true; //Validado
+	}
+
+	//Handler para el evento cuando cambia el input
+	//Lleva la CURP a mayúsculas para validarlo
+	function validarInput(input) {
+    	var curp = input.value.toUpperCase(),
+        	resultado = document.getElementById("resultado"),
+        	valido = "No válido";
+
+			let btnGardar = document.getElementById('btnGuardar');
+			btnGardar.classList.add("disabled");
+			btnGardar.disabled = true;
+        
+    	if (curpValida(curp)) { // ⬅️ Acá se comprueba
+    		valido = "Validado";
+        	resultado.classList.add("ok");
+			btnGardar.classList.remove("disabled");
+
+			btnGardar.disabled = false;
+    	} else {
+    		resultado.classList.remove("ok");
+    	}
+        
+		resultado.innerText = "Formato: " + valido;
+    	//resultado.innerText = "CURP: " + curp + "\nFormato: " + valido;
+	}
+
+
 </script>
 
 <script src="{{asset('js/website/home.js')}}"></script>

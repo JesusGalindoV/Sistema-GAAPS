@@ -7,6 +7,17 @@
   {
     cursor: pointer;
   }
+
+  .navtag{
+    font-weight: bold;
+    background-color: #f5f5f5;
+  }
+
+  .navtag:hover{
+    background-color: #f6f6f6;
+    color: #495057;
+  }
+  
 </style>
 
 <div class="content-wrapper">
@@ -27,8 +38,8 @@
           
           <ol class="breadcrumb float-sm-right">
             
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active"><a href="#">documentos</a></li>
+            <li class="breadcrumb-item"><a href="/portal">Home</a></li>
+            <li class="breadcrumb-item active"><a href="/portal/documents">documentos</a></li>
             
           </ol>
           
@@ -63,19 +74,19 @@
 
             <li class="nav-item">
 
-              <a class="nav-link {{$aux == 0?'active':''}} tap-change" id="document" data-toggle="tab" href="#document-panel" role="tab" aria-controls="documents" aria-selected="true" data-value="0">Expediente</a>
+              <a class="nav-link {{$aux == 0?'active':''}} tap-change navtag" id="document" data-toggle="tab" href="#document-panel" role="tab" aria-controls="documents" aria-selected="true" data-value="0" style="border-top: #ddccf0 1px solid;border-right: #ddccf0 1px solid;border-left: #ddccf0 1px solid">Expediente</a>
 
             </li>
 
             <li class="nav-item">
 
-              <a class="nav-link tap-change {{$aux == 2?'active':''}}" id="getDocument" data-toggle="tab" href="#getDocument-panel" role="tab" aria-controls="documents" aria-selected="true" data-value="2">Solicitar</a>
+              <a class="nav-link tap-change {{$aux == 2?'active':''}} navtag" id="getDocument" data-toggle="tab" href="#getDocument-panel" role="tab" aria-controls="documents" aria-selected="true" data-value="2" style="border-top: #ddccf0 1px solid;border-right: #ddccf0 1px solid;border-left: #ddccf0 1px solid">Solicitar</a>
 
             </li>
 
             <li class="nav-item">
 
-              <a class="nav-link {{$aux == 1?'active':''}} tap-change" id="document-inscription" data-toggle="tab" href="#inscription-panel" role="tab" aria-controls="documents_inscription" aria-selected="false" data-value="1">Cargar Documentos</a>
+              <a class="nav-link {{$aux == 1?'active':''}} tap-change navtag" id="document-inscription" data-toggle="tab" href="#inscription-panel" role="tab" aria-controls="documents_inscription" aria-selected="false" data-value="1" style="border-top: #ddccf0 1px solid;border-right: #ddccf0 1px solid;border-left: #ddccf0 1px solid">Cargar Documentos</a>
 
             </li>
 
@@ -290,6 +301,21 @@
 
                       @if($acta[0] != 'card-success')
                       <button data-toggle="modal" data-target="#modalDocumentos"  class="btn btn-default open-modal" document-type="1">Subir Acta <i class="fas fa-arrow-circle-right"></i></button> 
+                      
+                        <?php
+                          $path = "/"."documentos/" . current_user()->sAlumn->Matricula . "/";
+                          $path2 = current_user()->name."_Acta de Nacimiento.pdf";
+                        
+
+                          $path3 = "documentos/" . current_user()->sAlumn->Matricula . "/";
+                          if(file_exists($path3.$path2)){
+
+                            echo '<button class="btn btn-default open-modal"><a href=" '.$path.$path2.' " target="_blank" class="btn btn-danger custom"><i class="fa fa-eye"></i> Ver Acta</a></button>';
+                          
+                          }
+
+                        ?>
+
                       @else
                       <button class="btn btn-success">¡Gracias! <i class="fas fa-check"></i></button>
                       @endif
@@ -325,6 +351,21 @@
 
                       @if($fotografia[0] != 'card-success')
                       <button data-toggle="modal" data-target="#modalDocumentos"  class="btn btn-default open-modal" document-type="5">Subir foto <i class="fas fa-arrow-circle-right"></i></button> 
+                      
+                      <?php
+                          $path = "/"."documentos/" . current_user()->sAlumn->Matricula . "/";
+                          $path2 = current_user()->name."_Fotografia.pdf";
+                        
+                          $path3 = "documentos/" . current_user()->sAlumn->Matricula . "/";
+                          if(file_exists($path3.$path2)){
+
+                            echo '<button class="btn btn-default open-modal"><a href=" '.$path.$path2.' " target="_blank" class="btn btn-danger custom"><i class="fa fa-eye"></i> Ver Foto</a></button>';
+                          
+                          }
+
+                        
+                        ?>
+                      
                       @else
                       <button class="btn btn-success">¡Gracias! <i class="fas fa-check"></i></button>
                       @endif
@@ -360,6 +401,21 @@
 
                       @if($certificado[0] != 'card-success')
                       <button data-toggle="modal" data-target="#modalDocumentos"  class="btn btn-default open-modal" document-type="2">Subir certificado <i class="fas fa-arrow-circle-right"></i></button> 
+
+                      <?php
+                          $path = "/"."documentos/" . current_user()->sAlumn->Matricula . "/";
+                          $path2 = current_user()->name."_Kardex o Constancia.pdf";
+                        
+                          $path3 = "documentos/" . current_user()->sAlumn->Matricula . "/";
+                          if(file_exists($path3.$path2)){
+
+                            echo '<button class="btn btn-default open-modal"><a href=" '.$path.$path2.' " target="_blank" class="btn btn-danger custom"><i class="fa fa-eye"></i> Ver Certificado</a></button>';
+                          
+                          }
+
+                        
+                        ?>
+
                       @else
                       <button class="btn btn-success">¡Gracias! <i class="fas fa-check"></i></button>
                       @endif
@@ -395,6 +451,22 @@
 
                       @if($curp[0] != 'card-success')
                       <button data-toggle="modal" data-target="#modalDocumentos"  class="btn btn-default open-modal" document-type="3">Subir CURP <i class="fas fa-arrow-circle-right"></i></button> 
+                      
+                      <?php
+                          $path = "/"."documentos/" . current_user()->sAlumn->Matricula . "/";
+                          $path2 = current_user()->name."_CURP.pdf";
+                        
+
+                          $path3 = "documentos/" . current_user()->sAlumn->Matricula . "/";
+                          if(file_exists($path3.$path2)){
+
+                            echo '<button class="btn btn-default open-modal"><a href=" '.$path.$path2.' " target="_blank" class="btn btn-danger custom"><i class="fa fa-eye"></i> Ver Curp</a></button>';
+                          
+                          }
+
+                        
+                        ?>
+                      
                       @else
                       <button class="btn btn-success">¡Gracias! <i class="fas fa-check"></i></button>
                       @endif
@@ -430,8 +502,27 @@
 
                       @if($imss[0] != 'card-success')
                       <button data-toggle="modal" data-target="#modalDocumentos" class="btn btn-default open-modal" document-type="4">Subir imss <i class="fas fa-arrow-circle-right"></i></button> 
+                      
+                      <?php
+                          
+                          $path = "/"."documentos/" . current_user()->sAlumn->Matricula . "/";
+                          $path2 = current_user()->name."_IMSS.pdf";                        
+
+                          $path3 = "documentos/" . current_user()->sAlumn->Matricula . "/";
+                          if(file_exists($path3.$path2)){
+
+                            echo '<button class="btn btn-default open-modal"><a href=" '.$path.$path2.' " target="_blank" class="btn btn-danger custom"><i class="fa fa-eye"></i> Ver Imss</a></button>';
+                          
+                          }
+                          
+                          //echo '<button class="btn btn-default open-modal"><a href=" '.$path.$path2.' " target="_blank" class="btn btn-danger custom"><i class="fa fa-eye"></i> Ver IMSS</a></button>';
+
+                        ?>
+
                       @else
+
                       <button class="btn btn-success">¡Gracias! <i class="fas fa-check"></i></button>
+                      
                       @endif
 
                     </div>
@@ -535,5 +626,6 @@
 </div>
 
 <script src="{{ asset('js/alumn/pdf.js')}}"></script>
+<script src="{{ asset('js/admin/document.js')}}"></script>
 
 @stop

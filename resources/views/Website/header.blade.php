@@ -7,12 +7,19 @@
 
 	  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item active">
+		      
+			  <li class="nav-item active">
 		        <a class="nav-link link-custom header-link" href="{{route('home')}}">Inicio</a>
 		      </li>
+			  
 		      <li class="nav-item active">
-		        <a class="nav-link link-custom header-link" href="http://www.unisierra.edu.mx/oferta_educativa/oferta-educativa.htm" target="_blank">Plan de estudios</a>
+		        <a class="nav-link link-custom header-link" href="http://unisierra.edu.mx/inicio/aspirantes/oferta-educativa/" target="_blank">Plan de estudios</a>
 		      </li>
+
+			  <li class="nav-item active">
+		        <a class="nav-link link-custom header-link" href="{{route('alumn.users.first_step')}}">Activar cuenta</a>
+		      </li>
+
 		    </ul>
 	  	</div>
 

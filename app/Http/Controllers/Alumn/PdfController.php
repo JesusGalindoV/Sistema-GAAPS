@@ -233,6 +233,7 @@ class PdfController extends Controller
         $file = $request->file('file-document');
         $rDocument = $request->input('document-type');
         $path = "documentos/" . current_user()->sAlumn->Matricula;
+
         $document_type = DocumentType::find($rDocument);
 
         if ($file->getClientOriginalExtension() != "pdf") {
@@ -248,21 +249,37 @@ class PdfController extends Controller
 
         $file->move($path, $documentName);
         $document = Document::where("route", $path."/".$documentName)->first();
+        
         if(!$document) {
             $document = new Document();
         }
 
-        $document->description = "Documento de inscripción";
-        $document->route = "/".$path."/".$documentName;
-        $document->status = 1;
-        $document->PeriodoId = getConfig()->period_id;
-        $document->alumn_id = current_user()->id;
-        $document->type = 1;
-        $document->document_type_id = $document_type->id;
-        $document->save();
 
-        session()->flash("messages","success|El documento se guardo con exito");
-        return redirect()->back();
+        $documentValidate = Document::where("route", "/".$path."/".$documentName)->first();
+
+        if(!$documentValidate){
+
+            $document->description = "Documento de inscripción";
+            $document->route = "/".$path."/".$documentName;
+            $document->status = 1;
+            $document->PeriodoId = getConfig()->period_id;
+            $document->alumn_id = current_user()->id;
+            $document->type = 1;
+            $document->document_type_id = $document_type->id;    
+
+            $document->save();
+
+            session()->flash("messages","success|El documento se guardo con exito");
+            return redirect()->back();
+
+        }else{
+
+            session()->flash("messages","success|El documento ha sido reemplazado con exito!.");
+            return redirect()->back();
+            
+        }
+
+        
     }
 
     public function deleteDocument($id) {

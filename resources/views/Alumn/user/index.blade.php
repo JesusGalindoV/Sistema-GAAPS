@@ -19,7 +19,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Unisierra</a></li>
+            <li class="breadcrumb-item"><a href="/portal">Home</a></li>
             <li class="breadcrumb-item active">Alumno perfil</li>
           </ol>
         </div>
