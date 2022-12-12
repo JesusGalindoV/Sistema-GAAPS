@@ -30,10 +30,6 @@
 	}
 
 	#resultado {
-<<<<<<< HEAD
-    	/* background-color: red; */
-=======
->>>>>>> a0f6d5f1f81bc5ef2ba08997aca612c1c8e6f229
 		width: 95%;
     	color: white;
     	font-weight: bold;
