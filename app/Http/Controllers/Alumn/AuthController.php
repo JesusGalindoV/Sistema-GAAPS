@@ -71,6 +71,7 @@ class AuthController extends Controller
                 return redirect()->back()->withInput();
 
             } else if ($adminUser->is_departament == 1){
+                
                 //USUARIOS DEPARTAMENTO BIBLIOTECA Y COMPUTO
                 if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
                 {
