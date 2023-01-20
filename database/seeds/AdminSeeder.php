@@ -37,7 +37,8 @@ class AdminSeeder extends Seeder
                 'email' => 'demo_biblioteca@unisierra.edu.mx',
                 'password' => bcrypt("demo"),
                 'area_id' => 3,
-                'first_time' => 1
+                'first_time' => 1,
+                'is_departament' => 1
             ]);
 
             DB::table('admin_users')->insert([
