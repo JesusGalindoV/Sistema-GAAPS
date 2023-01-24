@@ -34,7 +34,7 @@ class AuthController extends Controller
         $adminUser = AdminUser::where('email', "=" ,$email)->first();
 
         if (!$user && !$adminUser) {
-            session()->flash('messages', 'error|No Existe un usuario con ese correo');
+            session()->flash('messages', 'error|No existe un usuario con ese correo');
             return redirect()->back()->withInput();
             
         }else{
@@ -45,7 +45,7 @@ class AuthController extends Controller
                     return redirect()->route('alumn.home');
                 }
 
-                session()->flash('messages', 'error|El password es incorrecto');        
+                session()->flash('messages', 'error|Contraseña incorrecta');        
                 return redirect()->back()->withInput();
 
             }
@@ -57,7 +57,7 @@ class AuthController extends Controller
                     return redirect()->route('admin.home');
                 }
 
-                session()->flash('messages', 'error|El password es incorrecto');        
+                session()->flash('messages', 'error|Contraseña incorrecta');        
                 return redirect()->back()->withInput();
 
             }else if ($adminUser->area_id == 2){
@@ -67,7 +67,7 @@ class AuthController extends Controller
                     return redirect()->route('finance.home');
                 }
 
-                session()->flash('messages', 'error|El password es incorrecto');        
+                session()->flash('messages', 'error|Contraseña incorrecta');        
                 return redirect()->back()->withInput();
 
             } else if ($adminUser->is_departament == 1){
@@ -78,11 +78,10 @@ class AuthController extends Controller
                     return redirect()->route('departament.home');
                 }
 
-                session()->flash('messages', 'error|El password es incorrecto');        
+                session()->flash('messages', 'error|Contraseña incorrecta');        
                 return redirect()->back()->withInput();
             } //fin else if 
         }
-
     }
 
     public function logout(Request $request)
