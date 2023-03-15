@@ -257,7 +257,7 @@
 
                           <div class="inner">
 
-                            <h3>Recibos pendejos</h3>
+                            <h3>Recibos</h3>
 
                             <p>¡Revisalos!</p>
 
