@@ -153,7 +153,7 @@
               @if($debits != 0)
               <a href="{{route('alumn.debit')}}" class="small-box-footer">Ver<i class="fas fa-arrow-circle-right"></i></a>
               @else
-              <a href="#" class="small-box-footer">Vacio<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Vacio.<i class="fas fa-arrow-circle-right"></i></a>
               @endif
 
             </div>
