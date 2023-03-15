@@ -41,45 +41,28 @@
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                            <a href="{{route('departament.logs.classrooms.index')}}" class="nav-link">
+                                <i class="nav-icon fas fa-atlas"></i>
+                                <p>Bibliografías</p>
+                            </a>
+                        </li>
+                <li class="nav-item">
+                            <a href="{{route('departament.logs.classrooms.index')}}" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Tésis</p>
+                            </a>
+                   </li>
                 <li class="nav-item">
                     <a href="{{route('departament.user')}}" class="nav-link">
-                        <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-user"></i>
                         <p>
                             Mi cuenta
                         </p>
                     </a>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-folder"></i>
-                        <p>
-                            Bitacora
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('departament.logs.classrooms.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Aulas</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('departament.logs.equipment.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Equipos</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('departament.logs.report.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Reporte</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
 
             </ul>
 
