@@ -61,7 +61,7 @@
 
               <div class="inner">
 
-                <h3>Estadias</h3>
+                <h3>Tesis</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
 
