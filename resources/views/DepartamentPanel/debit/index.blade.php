@@ -78,6 +78,7 @@
               </select>
             </div>
           </div>
+          
           <div class="col-md-4">
             <label for="">Periodo</label>
             <div class="input-group mb-3">
@@ -141,6 +142,8 @@
 
       <div class="card-body">
 
+      <div class="table-responsive">
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 
         <table class="table table-bordered table-hover dt-responsive tableDebits">
@@ -165,10 +168,11 @@
           </thead>
 
         </table>
-
       </div>
 
     </div>
+
+  </div>
 
   </section>
 
