@@ -25,6 +25,9 @@
       <div class="card-body">
 
         <div class="row">
+
+
+          <!-- atajo de adeudos -->
           
           <div class="col-md-4 col-sm-12">
 
@@ -32,9 +35,40 @@
 
               <div class="inner">
 
-                <h3>Equipos ocupados</h3>
+                <h3>Adeudos</h3>
 
-                <p>{{ $equipments }}</p>
+              
+              </div>
+              <div class="icon">
+
+                <i class="fa fa-file-invoice-dollar"></i>
+
+              </div>
+
+              <!-- i -->
+              
+
+              <a href="" class="small-box-footer" data-toggle='modal' data-target='#modalPeriod'>Ver <i class="fas fa-arrow-circle-right"></i></a>
+
+            </div>
+            
+          </div>
+
+          <!-- boton de estadias -->
+          <div class="col-md-4 col-sm-12">
+
+            <div class="small-box bg-success">
+
+              <div class="inner">
+
+                <h3>Estadias</h3>
+
+                <!-- <p>{{ $equipments }}</p> -->
+
+              </div>
+              <div class="icon">
+
+                <i class="fas fa-book"></i>
 
               </div>
 
@@ -43,7 +77,33 @@
               <a href="" class="small-box-footer" data-toggle='modal' data-target='#modalPeriod'>Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
-            
+
+          </div>
+
+          <!-- atajo de bibliografias -->
+          <div class="col-md-4 col-sm-12">
+
+            <div class="small-box bg-success">
+
+              <div class="inner">
+
+                <h3>Bibliografias</h3>
+
+                <!-- <p>{{ $equipments }}</p> -->
+
+              </div>
+              <div class="icon">
+
+                <i class="fas fa-atlas"></i>
+
+              </div>
+
+              <!-- i -->
+
+              <a href="" class="small-box-footer" data-toggle='modal' data-target='#modalPeriod'>Ver <i class="fas fa-arrow-circle-right"></i></a>
+
+            </div>
+
           </div>
 
         </div>
