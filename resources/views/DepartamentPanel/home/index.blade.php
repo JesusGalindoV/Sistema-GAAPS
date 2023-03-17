@@ -36,7 +36,7 @@
               <div class="inner">
 
                 <h3>Adeudos</h3>
-
+                <br>
               
               </div>
               <div class="icon">
@@ -64,6 +64,7 @@
                 <h3>Tesis</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
+                <br>
 
               </div>
               <div class="icon">
@@ -90,6 +91,7 @@
                 <h3>Bibliografias</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
+                <br>
 
               </div>
               <div class="icon">
