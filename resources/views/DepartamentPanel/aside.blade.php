@@ -27,18 +27,14 @@
                 <li class="nav-item">
                     <a href="{{route('departament.home')}}" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Inicio
-                        </p>
+                        <p>Inicio</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{route('departament.debit')}}" class="nav-link">
                         <i class="nav-icon fas fa-credit-card"></i>
-                        <p>
-                            Adeudos
-                        </p>
+                        <p>Adeudos</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -56,9 +52,7 @@
                 <li class="nav-item">
                     <a href="{{route('departament.user')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Mi cuenta
-                        </p>
+                        <p>Mi cuenta</p>
                     </a>
                 </li>
 

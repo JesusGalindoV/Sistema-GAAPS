@@ -12,11 +12,11 @@
 
         <div class="col-sm-6">
 
-          <h1>Registro de aulas</h1>
+          <h1>Registro de tésis</h1>
 
         </div>
 
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
 
           <ol class="breadcrumb float-sm-right">
 
@@ -24,7 +24,7 @@
 
           </ol>
 
-        </div>
+        </div> -->
 
       </div>
 
@@ -45,9 +45,9 @@
       </div>
       
       <div class="card-body">
-
-        <table class="table table-bordered table-hover dt-responsive">
-
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+        
           <thead>
             <tr>
               <th style="width: 10px">#</th>
@@ -85,6 +85,8 @@
           </tbody>
 
         </table>
+
+        </div>
 
       </div>
 
