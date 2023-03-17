@@ -44,7 +44,7 @@
                             </a>
                         </li>
                 <li class="nav-item">
-                            <a href="{{route('departament.logs.classrooms.index')}}" class="nav-link">
+                            <a href="{{route('departament.logs.report.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>Tésis</p>
                             </a>

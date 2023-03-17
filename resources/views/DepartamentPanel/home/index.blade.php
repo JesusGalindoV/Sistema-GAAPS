@@ -48,7 +48,7 @@
               <!-- i -->
               
 
-              <a href="" class="small-box-footer" data-toggle='modal' data-target='#modalPeriod'>Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.debit')}}" class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
             
@@ -74,7 +74,7 @@
 
               <!-- i -->
 
-              <a href="" class="small-box-footer" data-toggle='modal' data-target='#modalPeriod'>Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.logs.report.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 
@@ -100,7 +100,7 @@
 
               <!-- i -->
 
-              <a href="" class="small-box-footer" data-toggle='modal' data-target='#modalPeriod'>Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.logs.classrooms.index')}}" class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 
