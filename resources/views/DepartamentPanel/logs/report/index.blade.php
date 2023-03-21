@@ -62,7 +62,9 @@
 
         </div>
 
-        <table class="table table-bordered table-hover dt-responsive">
+        <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+        
 
           <thead>
             <tr>
@@ -79,6 +81,7 @@
 
         </table>
 
+      </div>
       </div>
 
     </div>
