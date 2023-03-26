@@ -988,7 +988,7 @@ Route::group(['domain' => $alumnDomain], function() {
 			        'as' => 'debit.see'
 				]);
 
-				Route::group(["prefix" => "logs"], function() {
+				Route::group(["prefix" => "biblioteca"], function() {
 
 					Route::name('logs.')->group(function() {
 
