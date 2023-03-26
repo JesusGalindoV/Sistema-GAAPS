@@ -42,13 +42,9 @@ class DebitController extends Controller
         $length = $request->get('length');
         $filtered = 0;
 
-        // $query = Debit::where("admin_id", current_user('departament')->id)->where("id_alumno", "<>", null);
         $query = Debit::where("admin_id", "<>", null)->where("id_alumno", "<>", null);
 
         $query->where([["status","=",$request->input('mode')],["period_id","=",$request->input('period')]]);
-
-        // $query->where([["debit_type_id","<>", 4],["debit_type_id","<>",5]]);
-        // $query->where([["debit_type_id","=", 2],["debit_type_id","=", 3],["debit_type_id","=", 4]]);
         
         $query->where([["debit_type_id","=", 2]])->orWhere([["debit_type_id","=", 3]])->orWhere([["debit_type_id","=", 4]]);
         //busqueda por adeudo de tipo daño material, robo o atraso 

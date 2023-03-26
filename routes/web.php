@@ -992,7 +992,7 @@ Route::group(['domain' => $alumnDomain], function() {
 
 					Route::name('logs.')->group(function() {
 
-						Route::group(["prefix" => "classrooms"], function() {
+						Route::group(["prefix" => "bibliografia"], function() {
 
 							Route::get('/', [
 						        'uses' => 'ClassRoomController@index', 
@@ -1021,7 +1021,7 @@ Route::group(['domain' => $alumnDomain], function() {
 
 						});
 
-						Route::group(["prefix" => "reports"], function() {
+						Route::group(["prefix" => "tesis"], function() {
 							Route::get('/', [
 						        'uses' => 'ReportController@index', 
 						        'as' => 'report.index'
