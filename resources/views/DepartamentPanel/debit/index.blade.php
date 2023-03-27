@@ -13,7 +13,7 @@
         <div class="col-sm-9">
 
           <div class="row">
-            <div class="col-md-4"><h1>Procesar <small>pagos</small></h1></div>
+            <div class="col-md-4"><h1>Adeudos</h1></div>
           </div>
 
         </div>
@@ -152,16 +152,16 @@
 
             <tr>
               <th style="width: 10px">#</th>
-              <th>Acciones</th>
+              {{-- <th>Acciones</th> --}}
               <th>Alumno</th>
-              <th>Email</th>
+              {{-- <th>Email</th> --}}
               <th>Descripción</th>
               <th>Importe</th>
               <th>Matricula</th>
               <th>Estado</th>
               <th>Fecha</th>
               <th>Carrera</th>
-              <th>Localidad</th>
+              {{-- <th>Localidad</th> --}}
              
             </tr>
 
@@ -316,7 +316,7 @@
 
 
  <!-- Modal Editar-->
-<div class="modal fade" id="modalEdit">
+{{-- <div class="modal fade" id="modalEdit">
 
   <div class="modal-dialog">
 
@@ -409,10 +409,10 @@
 
   </div>
 
-</div>
+</div> --}}
 
 <!-- TerminaModal -->
 
-<script src="{{ asset('js/computercenter/debit.js')}}"></script>
+<script src="{{ asset('js/computercenter/debit.js') }}"></script>
 
 @stop
