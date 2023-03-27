@@ -12,19 +12,9 @@
 
         <div class="col-sm-6">
 
-          <h1>Registro de tésis</h1>
+          <h1>Registro de bibliografias en biblioteca</h1>
 
         </div>
-
-        <!-- <div class="col-sm-6">
-
-          <ol class="breadcrumb float-sm-right">
-
-            <li class="breadcrumb-item active"><a href="#">Home</a></li>
-
-          </ol>
-
-        </div> -->
 
       </div>
 
@@ -39,7 +29,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col-md-12">
-            <a href="{{ route('departament.logs.classrooms.create') }}" class="btn btn-success"><i class="fa fa-plus"></i></a>
+            <button data-toggle="modal" data-target="#modalDebit" class="btn btn-warning button-custom"><i class="fa fa-fw fa-plus"></i>Nueva bibliografia</button>
           </div>
         </div>
       </div>
@@ -51,12 +41,9 @@
           <thead>
             <tr>
               <th style="width: 10px">#</th>
-              <th>Area</th>
-              <th>Nombre</th>
-              <th>Codigo</th>
-              <th>Numero</th>
-              <th>Estado</th>
-              <th>Acciones</th>             
+              <th>Titulo</th>
+              <th>Autor</th>
+              <th>ISBN</th>           
             </tr>  
           </thead>
 
@@ -64,22 +51,10 @@
             
             @foreach($instances as $key => $item)
             <tr>
-              <td>{{ ($key+1)}} </td>
+              <td>{{ ($key+1)}} </td> 
               <td>{{ $item->area->name }}</td>
               <td>{{ $item->name }}</td>
               <td>{{ $item->code }}</td>
-              <td>{{ $item->num }}</td>
-              <td>{{ $item->state == 0 ? 'disponible' : 'Ocupada/mantenimiento' }}</td>
-              <td>
-                <div class="btn-group">
-                  <a class="btn btn-warning" href="{{ route('departament.logs.classrooms.edit', $item->id) }}">
-                    <i class="fa fa-edit" style="color: white"></i>
-                  </a>
-                  <button class="btn btn-danger btnDelete" idClassroom="{{$item->id}}">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </td>
             </tr>
             @endforeach
           </tbody>
@@ -95,6 +70,113 @@
   </section>
 
 </div>
+
+
+<!-- Modal crear nuevo adeudo -->
+
+<div class="modal fade" id="modalDebit">
+
+  <div class="modal-dialog modal-lg">
+
+    <div class="modal-content">
+
+        <form method="post" action="{{route('departament.debit.save')}}">
+            
+            {{ csrf_field() }}
+
+            <div class="modal-header">
+
+                <h4 class="modal-title">GENERAR NUEVA BIBLIOGRAFIA</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+        
+            <div class="modal-body">
+
+                <div class="row">
+
+                    {{-- Ingresar el titulo del libro --}}
+                    <div class="col-md-12">           
+
+                        <div class="input-group mb-3">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Titulo</span>
+                            </div>
+                            <textarea type="text" name="titulo" placeholder="Ingrese el titulo del libro" class="form-control" required></textarea>
+
+                        </div>
+
+                    </div>
+
+                    {{-- Ingresar el Autor del libro --}}
+                    <div class="col-md-12">           
+
+                      <div class="input-group mb-3">
+
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">Autor:</span>
+                          </div>
+                          <textarea type="text" name="autor" placeholder="Ingrese el/los Autor/Autores del libro" class="form-control" required></textarea>
+
+                      </div>
+
+                    </div>
+
+                    {{-- Ingresar el ISBN del libro --}}
+                    <div class="col-md-12">           
+
+                      <div class="input-group mb-3">
+
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">ISBN:</span>
+                          </div>
+                          <textarea type="text" name="isbn" placeholder="Ingrese el ISBN del libro" class="form-control" required></textarea>
+
+                      </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer justify-content">
+
+                <div class="col-sm container-fluid">
+
+                    <div class="row">
+
+                        <div class=" col-sm-6 btn-group">
+
+                        <button id="cancel" type="button" class="btn btn-danger .px-2 " data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+
+                        </div>
+
+                        <div class=" col-sm-6 btn-group">
+
+                        <button type="submit" id="sale" class="btn btn-success .px-2"><i class="fa fa-check"></i> Guardar</button>
+                        
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+       </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 
 <script>
   $(".table").DataTable({
