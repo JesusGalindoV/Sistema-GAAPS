@@ -102,7 +102,7 @@
 
               <!-- i -->
 
-              <a href="{{route('departament.logs.bibliografias.index')}}" class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.logs.classrooms.index')}}" class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 

@@ -177,7 +177,8 @@
   </section>
 
 </div>
- <!-- Modal crear nuevo adeudo -->
+
+<!-- Modal crear nuevo adeudo -->
 
 <div class="modal fade" id="modalDebit">
 
