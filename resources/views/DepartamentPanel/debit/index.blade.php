@@ -317,7 +317,7 @@
 
 
  <!-- Modal Editar-->
-{{-- <div class="modal fade" id="modalEdit">
+<div class="modal fade" id="modalEdit">
 
   <div class="modal-dialog">
 
@@ -410,7 +410,7 @@
 
   </div>
 
-</div> --}}
+</div>
 
 <!-- TerminaModal -->
 
