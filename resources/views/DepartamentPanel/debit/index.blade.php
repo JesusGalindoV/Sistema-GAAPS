@@ -152,7 +152,7 @@
 
             <tr>
               <th style="width: 10px">#</th>
-              {{-- <th>Acciones</th> --}}
+              <th>Acciones</th>
               <th>Alumno</th>
               {{-- <th>Email</th> --}}
               <th>Descripción</th>

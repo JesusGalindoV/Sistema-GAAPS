@@ -16,21 +16,21 @@ function changeMode(mode, period, concept){
         },
         "columns":[
             {"data": "#"},
-            // {"data": null, orderable: false, "render": function(data){
+            {"data": null, orderable: false, "render": function(data){
 
-                // var res = "<div class='btn-group'>";
+                var res = "<div class='btn-group'>";
 
-                // if (data.Estado == "Pendiente") {
-                //     res += "<button class='btn btn-warning edit' data-toggle='modal' data-target='#modalEdit' DebitId='"+data.debitId+"' title='Editar Adeudo'>"+
-                //     "<i class='fa fa-edit' style='color:white'></i></button><button class='btn btn-danger btnDeleteDebit' DebitId='"+data.debitId+"' title='Editar Adeudo'>"+
-                //     "<i class='fa fa-times' style='color:white'></i></button>";
-                // } else {
-                //     res += "<button class='btn btn-default'>"+
-                //     "Disabled</button>";
-                // }
-                // res+="</div>";
-                // return res;
-            // }},
+                if (data.Estado == "Pendiente") {
+                    res += "<button class='btn btn-warning edit' data-toggle='modal' data-target='#modalEdit' DebitId='"+data.debitId+"' title='Editar Adeudo'>"+
+                    "<i class='fa fa-edit' style='color:white'></i></button><button class='btn btn-danger btnDeleteDebit' DebitId='"+data.debitId+"' title='Editar Adeudo'>"+
+                    "<i class='fa fa-times' style='color:white'></i></button>";
+                } else {
+                    res += "<button class='btn btn-default'>"+
+                    "Disabled</button>";
+                }
+                res+="</div>";
+                return res;
+            }},
             {"data": "Alumno"},
             // {"data": "Email"},
             {"data": "Descripción"},
@@ -68,44 +68,44 @@ function changeMode(mode, period, concept){
         }
     });
 
-    // $(".tableDebits tbody").on("click","button.edit",function()
-    // {
-    //     var data = new FormData();
-    //     data.append('DebitId', $(this).attr("DebitId"));
-    //     $.ajax({
-    //         url:'/departaments/debit/see',
-    //         headers:{'X-CSRF-TOKEN': $('#tokenUpdate').val()},
-    //         method:'POST',
-    //         data:data,
-    //         cache:false,
-    //         contentType:false,
-    //         processData:false,
-    //         success:function(response)
-    //         {   
-    //             $('#amount').val(response['amount']);
-    //             $('#debitId').val(response['debitId']);
-    //             $('#description').val(response['description']);               
-    //         }
-    //     });
-    // });
+    $(".tableDebits tbody").on("click","button.edit",function()
+    {
+        var data = new FormData();
+        data.append('DebitId', $(this).attr("DebitId"));
+        $.ajax({
+            url:'/departaments/debit/see',
+            headers:{'X-CSRF-TOKEN': $('#tokenUpdate').val()},
+            method:'POST',
+            data:data,
+            cache:false,
+            contentType:false,
+            processData:false,
+            success:function(response)
+            {   
+                $('#amount').val(response['amount']);
+                $('#debitId').val(response['debitId']);
+                $('#description').val(response['description']);               
+            }
+        });
+    });
 
-    // $(".tableDebits tbody").on("click","button.btnDeleteDebit",function()
-    // {
-    //     var id = $(this).attr("DebitId");
-    //     swal.fire({
-    //         title: '¿estas seguro de eliminar este adeudo?',
-    //         text: "¡se eliminara de los registros!",
-    //         type: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         cancelButtonText: 'Cancelar',
-    //         confirmButtonText: 'Si, estoy seguro'
-    //     }).then((result)=>
-    //     {
-    //         window.location = "/departaments/debit/delete/"+id;
-    //     });
-    // })
+    $(".tableDebits tbody").on("click","button.btnDeleteDebit",function()
+    {
+        var id = $(this).attr("DebitId");
+        swal.fire({
+            title: '¿estas seguro de eliminar este adeudo?',
+            text: "¡se eliminara de los registros!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Si, estoy seguro'
+        }).then((result)=>
+        {
+            window.location = "/departaments/debit/delete/"+id;
+        });
+    })
 }
 
 $("#id_alumno").select2({
@@ -131,7 +131,7 @@ $("#period").change(function(){
 $("#concept").change(function(){
     changeMode($("#mode").val(),$("#period").val(),$("#concept").val());
 });
-
+ 
 $(".toggle-bootstrap").bootstrapToggle();
 
 $(".showPdf").click(function()
