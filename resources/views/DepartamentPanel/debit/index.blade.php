@@ -151,6 +151,7 @@
           <thead>
 
             <tr>
+              
               <th style="width: 10px">#</th>
               <th>Acciones</th>
               <th>Alumno</th>

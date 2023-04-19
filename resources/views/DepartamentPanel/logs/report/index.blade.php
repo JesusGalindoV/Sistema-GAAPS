@@ -14,7 +14,7 @@
 
         <div class="col-sm-6">
 
-          <h1>Tesis</h1>
+          <h1>Memorias de estadía</h1>
 
         </div>
 
@@ -30,7 +30,7 @@
       
       <div class="card-body">
 
-        <div class="row" style="margin-bottom: 1rem">
+        {{-- <div class="row" style="margin-bottom: 1rem">
 
           <div class="col-md-4">
 
@@ -50,7 +50,7 @@
 
           </div>
 
-        </div>
+        </div> --}}
 
         <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -59,10 +59,10 @@
           <thead>
             <tr>
               <!-- <th style="width: 10px">#</th> -->
-              <th>Matricula</th>
-              <th>Nombre</th>
-              <th>Equipo</th>
-              <th>Sala</th>
+              <th>Titulo</th>
+              <th>Autor</th>
+              <th>Carrera</th>
+              <th>Año</th>
               <th>Hora entrada</th>
               <th>Hola salida</th>
               <th>Fecha</th>
