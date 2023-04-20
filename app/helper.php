@@ -401,6 +401,16 @@ function carrerasActivas($planId = null) {
   return Sicoes::carrerasActivas($planId);
 }
 
+// function getDebitType($id = null)
+// {
+//     if ($id == null) {
+//         return DebitType::all();
+//     } else {
+//         return DebitType::find($id);
+//     }
+// }
+
+
 
 //auxiliari methods
 function generatePasssword()

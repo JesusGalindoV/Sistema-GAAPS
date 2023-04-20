@@ -97,7 +97,7 @@
 
     <div class="modal-content">
 
-        <form method="post" action="{{route('departament.debit.save')}}">
+        <form method="post" action="{{route('departament.logs.tesis.save')}}">
             
             {{ csrf_field() }}
 
@@ -265,7 +265,7 @@
         "processing": true,
         "serverSide": true,
         "ajax": {
-          "url": "{{ route('departament.logs.report.datatable') }}",
+          "url": "{{ route('departament.logs.tesis.datatable') }}",
           "type": "POST",
           "headers":{'X-CSRF-TOKEN' : '{{ csrf_token() }}'},
           // "data": {

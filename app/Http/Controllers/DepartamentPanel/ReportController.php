@@ -14,7 +14,7 @@ use DB;
 class ReportController extends Controller {
 
 	public function index() {
-		return view("DepartamentPanel.logs.report.index");
+		return view("DepartamentPanel.logs.tesis.index");
 	}
 
     public function save(Request $request) 

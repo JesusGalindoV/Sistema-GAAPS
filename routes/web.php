@@ -1024,17 +1024,17 @@ Route::group(['domain' => $alumnDomain], function() {
 						Route::group(["prefix" => "tesis"], function() {
 							Route::get('/', [
 						        'uses' => 'ReportController@index', 
-						        'as' => 'report.index'
+						        'as' => 'tesis.index'
 							]);
 
 							Route::post('/datatable', [
 						        'uses' => 'ReportController@datatable', 
-						        'as' => 'report.datatable'
+						        'as' => 'tesis.datatable'
 							]);
 
 							Route::post('/tesis/save', [
 								'uses' => 'ReportController@save', 
-								'as' => 'report.save'
+								'as' => 'tesis.save'
 							]);
 						});
 

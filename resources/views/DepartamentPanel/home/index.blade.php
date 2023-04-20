@@ -75,7 +75,7 @@
 
               <!-- i -->
 
-              <a href="{{route('departament.logs.report.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.logs.tesis.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 
