@@ -63,9 +63,9 @@
               <th>Autor</th>
               <th>Carrera</th>
               <th>Año</th>
-              <th>Hora entrada</th>
+              {{-- <th>Hora entrada</th>
               <th>Hola salida</th>
-              <th>Fecha</th>
+              <th>Fecha</th> --}}
             </tr>  
           </thead>
 
@@ -84,7 +84,33 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
-  
+
+  // var filters = {
+  //   initDate: null,
+  //   endDate: null,
+  //   init: () => {
+  //     $('#datepicker-report').daterangepicker({
+  //       autoUpdateInput: false,
+  //       locale: {
+  //          cancelLabel: 'Clear'
+  //       },
+  //       ranges: {
+  //        'Hoy': [moment(), moment()],
+  //        'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+  //        'Ultimos 7 días': [moment().subtract(6, 'days'), moment()],
+  //        'Ultimos 30 días': [moment().subtract(29, 'days'), moment()],
+  //        'Este mes': [moment().startOf('month'), moment().endOf('month')],
+  //        'Ultimo mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+  //       },
+  //     }, function(start, end, label) {
+  //       $("#datepicker-report").val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+  //       filters.initDate = start.format('YYYY-MM-DD');
+  //       filters.endDate = end.format('YYYY-MM-DD');
+  //       Datatable.dataTable.draw();
+  //     });
+  //   }
+  // };
+
   var Datatable = {
     table: $(".table"),
     init: () => {
@@ -95,14 +121,14 @@
           "url": "{{ route('departament.logs.report.datatable') }}",
           "type": "POST",
           "headers":{'X-CSRF-TOKEN' : '{{ csrf_token() }}'},
-          "data": {
-            "initDate": () => {
-              return filters.initDate;
-            }, 
-            "endDate": () => {
-              return filters.endDate;
-            }
-          }
+          // "data": {
+          //   "initDate": () => {
+          //     return filters.initDate;
+          //   }, 
+          //   "endDate": () => {
+          //     return filters.endDate;
+          //   }
+          // }
         },
         "columns": [
           {"data": "enrollment", "render": (data) => {
@@ -111,9 +137,9 @@
           {"data": "full_name"},
           {"data": "equipment"},
           {"data": "classroom"},
-          {"data": "entry_time"},
-          {"data": "departure_time"},
-          {"data": "Date"}
+          // {"data": "entry_time"},
+          // {"data": "departure_time"},
+          // {"data": "Date"}
         ],
         "language": {
 
@@ -144,7 +170,7 @@
     }
   }
   
-  filters.init();
+  // filters.init();
   Datatable.init();
 
 </script>
