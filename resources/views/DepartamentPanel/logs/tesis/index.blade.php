@@ -115,7 +115,37 @@
 
                 <div class="row">
 
-                    <div class="col-md-6">           
+                    <div class="col-md-12">           
+
+                      <div class="input-group mb-3">
+
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">
+                              <i class="fas fa-ad"></i></span>
+                          </div>
+
+                          <textarea type="text" name="titulo" placeholder="Ingrese el titulo" class="form-control" required></textarea>
+
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-12">           
+
+                      <div class="input-group mb-3">
+
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">
+                              <i class="fas fa-user"></i></span>
+                          </div>
+
+                          <textarea type="text" name="autor" placeholder="Ingrese el autor" class="form-control" required></textarea>
+
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-12">           
 
                         <div class="input-group mb-3">
 
@@ -124,18 +154,63 @@
                                 <i class="fas fa-credit-card"></i></span>
                             </div>
 
-                            <select name="debit_type_id" id="debit_type_id" class="form-control select2" style="width: 88%">
-                              <option value="" disabled selected>Seleccione un concepto</option>
-                              @foreach(getUnAdminDebitType()  as $key => $value)
-                              <option value="{{$value->id}}">{{$value->concept}}</option>
-                              @endforeach
+                            <select name="Nombre" id="Nombre" class="form-control select2" style="width: 88%">
+                                <option value="">Seleccione la carrera</option>
+                                @php
+                                    $carreras = selectCarreraWithSicoes();
+                                @endphp
+
+                                @foreach($carreras as $key => $value)
+                                <option value="{{$value->CarreraId}}">{{$value->Nombre}}
+                                </option>
+                                @endforeach
                             </select>
 
                         </div>
 
                     </div>
 
-                    <div class="col-md-6">           
+                    <div class="container">
+
+                      <div class="row">
+                        <div class="col-md-12">
+                            <p>ADVERTENCIA, estos documentos solo se pueden subir en formato PDF</p>
+                          </div>
+                      </div>
+          
+                      <!-- <form action="/file-upload" enctype="multipart/form-data" class="dropzone"  id="my-awesome-dropzone"> -->
+                        <form action="{{route('alumn.save.document.inscription')}}" method="post" enctype="multipart/form-data">
+                          
+                        {{ csrf_field() }}
+                          
+                        <input type="hidden" id="document-type" name="document-type">
+          
+                        <div class="row">
+          
+                          <div class="col-md-12">
+                            
+                            <div class="form-group">
+          
+                            <div class="panel">SUBIR MEMORIA DE ESTADIA</div>
+          
+                              <input accept="application/pdf" type="file" name="file-document" id="file-document" required>
+          
+                            </div>
+          
+                          </div>
+          
+                        </div>
+          
+                        <div class="row">
+          
+          
+                      </div>
+                          
+                      </form>
+          
+                    </div>  
+
+                    {{-- <div class="col-md-6">           
 
                         <div class="input-group mb-3">
 
@@ -148,9 +223,9 @@
 
                         </div>
 
-                    </div>
+                    </div> --}}
 
-                    <div class="col-md-12">           
+                    {{-- <div class="col-md-12">           
 
                         <div class="input-group mb-3">
 
@@ -173,22 +248,7 @@
 
                         </div>
 
-                    </div>
-
-                    <div class="col-md-12">           
-
-                        <div class="input-group mb-3">
-
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                <i class="fas fa-ad"></i></span>
-                            </div>
-
-                            <textarea type="text" name="description" placeholder="Ingrese una descripción" class="form-control" required></textarea>
-
-                        </div>
-
-                    </div>
+                    </div> --}}
 
                 </div>
 

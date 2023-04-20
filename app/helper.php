@@ -340,6 +340,10 @@ function selectUsersWithSicoes() {
     return DB::table("users")->where("id_alumno","<>",null)->get();
 }
 
+function selectCarreraWithSicoes() {
+    return DB::table("carrera")->where("CarreraId","<>",null)->get();
+}
+
 function selectTable($tableName, $item=null,$value=null,$limit=null)
 {
     if ($item == null) {
