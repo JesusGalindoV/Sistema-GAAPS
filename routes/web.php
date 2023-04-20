@@ -1031,6 +1031,11 @@ Route::group(['domain' => $alumnDomain], function() {
 						        'uses' => 'ReportController@datatable', 
 						        'as' => 'report.datatable'
 							]);
+
+							Route::post('/tesis/save', [
+								'uses' => 'ReportController@save', 
+								'as' => 'report.save'
+							]);
 						});
 
 						Route::group(["prefix" => "equipments"], function() {

@@ -17,6 +17,41 @@ class ReportController extends Controller {
 		return view("DepartamentPanel.logs.report.index");
 	}
 
+    public function save(Request $request) 
+    {
+        try {
+            $request->validate([
+                'debit_type_id' => 'required',
+                'amount' => 'required',
+                'id_alumno'=>'required',
+            ]);
+
+            $alumn = Alumno::find($request->get("id_alumno"));
+
+            $debit = new Debit();
+            $debit->debit_type_id = $request->get("debit_type_id");
+            $debit->amount = $request->get("amount");
+            $debit->description = $request->get("description");
+            $debit->id_alumno = $request->get("id_alumno");
+            $debit->admin_id = current_user('departament')->id;
+            $debit->period_id = selectCurrentPeriod()->id;
+            $debit->enrollment = $alumn->Matricula;
+            $debit->alumn_name = $alumn->Nombre;
+            $debit->alumn_last_name = $alumn->ApellidoPrimero;
+            $debit->alumn_second_last_name = (isset($alumn->ApellidoSegundo) ? $alumn->ApellidoSegundo : '');
+            $debit->career = $alumn->PlanEstudio->Carrera->Nombre;
+            $debit->location = $alumn->Localidad;
+            $debit->state = $alumn->Estado->Nombre;
+
+            $debit->save();
+            session()->flash("messages","success|El alumno tiene un nuevo adeudo");
+            return redirect()->back();
+        } catch (\Exception $th) {
+            session()->flash("messages","error|No pudimos guardar los datos");
+            return redirect()->back();
+        }
+    }
+
 	public function datatable(Request $request) {
         $filter = isset($request->get('search')['value']) && $request->get('search')  ?$request->get('search')['value']:false;
 
