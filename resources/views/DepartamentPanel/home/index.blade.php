@@ -61,7 +61,7 @@
 
               <div class="inner">
 
-                <h3>Tesis</h3>
+                <h3>Memorias de estadía</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
                 <br>
