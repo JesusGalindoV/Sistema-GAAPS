@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Logs\Equipment;
+use App\Models\Alumns\Document;
 use App\Models\Logs\TempUse;
 use App\Models\Logs\ClassRoom;
 use App\Models\Logs\ReportEquipment;
@@ -110,4 +111,60 @@ class ReportController extends Controller {
             "data" => $query->get()
         ]);
 	}
+
+    public function saveDocument(Request $request)
+    {
+        $file = $request->file('file-document');
+        $rDocument = $request->input('document-type');
+        $path = "memorias/" . "hola";
+
+        $document_type = "memoria";
+
+        if ($file->getClientOriginalExtension() != "pdf") {
+            session()->flash("messages","warning|El documento no tiene el formato requerido");
+            return redirect()->back();
+        }
+        
+        $documentName = $document_type."_".time().".".$file->getClientOriginalExtension();
+        // $documentName = $document_type.".".$file->getClientOriginalExtension();
+
+
+        // if (file_exists("/".$path."/".$documentName)) {
+        //     unlink("/".$path."/".$documentName);
+        // }
+
+        $file->move($path, $documentName);
+        $document = Document::where("route", $path."/".$documentName)->first();
+        
+        if(!$document) {
+            $document = new Document();
+        }
+
+
+        $documentValidate = Document::where("route", "/".$path."/".$documentName)->first();
+
+        if(!$documentValidate){
+
+            $document->description = "Documento de inscripción";
+            $document->route = "/".$path."/".$documentName;
+            $document->status = 1;
+            $document->PeriodoId = getConfig()->period_id;
+            $document->alumn_id = 1;
+            $document->type = 1;
+            $document->document_type_id = 3;    
+
+            $document->save();
+
+            session()->flash("messages","success|El documento se guardo con exito");
+            return redirect()->back();
+
+        }else{
+
+            session()->flash("messages","success|El documento ha sido reemplazado con exito!.");
+            return redirect()->back();
+            
+        }
+
+        
+    }
 }

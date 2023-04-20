@@ -1033,7 +1033,7 @@ Route::group(['domain' => $alumnDomain], function() {
 							]);
 
 							Route::post('/tesis/save', [
-								'uses' => 'ReportController@save', 
+								'uses' => 'ReportController@saveDocument', 
 								'as' => 'tesis.save'
 							]);
 						});

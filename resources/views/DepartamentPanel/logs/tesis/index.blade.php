@@ -30,28 +30,6 @@
       
       <div class="card-body">
 
-        {{-- <div class="row" style="margin-bottom: 1rem">
-
-          <div class="col-md-4">
-
-            <label for="">Rango de fechas</label>
-
-            <div class="input-group mb-3">
-
-              <div class="input-group-prepend">
-
-                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
-
-              </div>
-
-              <input type="text" class="form-control" id="datepicker-report" placeholder="Rango de fechas">
-
-            </div>
-
-          </div>
-
-        </div> --}}
-
         <div class="row" style="margin-bottom: 1rem">
 
           <div class="col-md-4">
@@ -72,10 +50,11 @@
             <thead>
               <tr>
                 <th style="width: 10px">#</th>
-                <th>Titulo</th>
                 <th>Autor</th>
+                <th>Titulo</th>
                 <th>Carrera</th>
-                <th>Año</th>
+                <th style="width: 10px">Año</th>
+                <th>Documento</th>
               </tr>  
             </thead>
           </table>
@@ -97,7 +76,7 @@
 
     <div class="modal-content">
 
-        <form method="post" action="{{route('departament.logs.tesis.save')}}">
+      <form action="{{route('departament.logs.tesis.save')}}" method="post" enctype="multipart/form-data">
             
             {{ csrf_field() }}
 
@@ -121,10 +100,10 @@
 
                           <div class="input-group-prepend">
                               <span class="input-group-text">
-                              <i class="fas fa-ad"></i></span>
+                              <i class="fas fa-user"></i></span>
                           </div>
 
-                          <textarea type="text" name="titulo" placeholder="Ingrese el titulo" class="form-control" required></textarea>
+                          <textarea type="text" name="autor" placeholder="Ingrese el autor" class="form-control" required></textarea>
 
                       </div>
 
@@ -136,10 +115,10 @@
 
                           <div class="input-group-prepend">
                               <span class="input-group-text">
-                              <i class="fas fa-user"></i></span>
+                              <i class="fas fa-ad"></i></span>
                           </div>
 
-                          <textarea type="text" name="autor" placeholder="Ingrese el autor" class="form-control" required></textarea>
+                          <textarea type="text" name="titulo" placeholder="Ingrese el titulo" class="form-control" required></textarea>
 
                       </div>
 
@@ -170,6 +149,21 @@
 
                     </div>
 
+                    <div class="col-md-12">           
+
+                        <div class="input-group mb-3">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                <i class="fas fa-calendar"></i></span>
+                            </div>
+
+                            <input type="number" step="any" min="0" name="year" placeholder="Año de publicación" class="form-control" required>
+
+                        </div>
+
+                    </div>
+
                     <div class="container">
 
                       <div class="row">
@@ -179,9 +173,9 @@
                       </div>
           
                       <!-- <form action="/file-upload" enctype="multipart/form-data" class="dropzone"  id="my-awesome-dropzone"> -->
-                        <form action="{{route('alumn.save.document.inscription')}}" method="post" enctype="multipart/form-data">
+                        {{-- <form action="{{route('alumn.save.document.inscription')}}" method="post" enctype="multipart/form-data">
                           
-                        {{ csrf_field() }}
+                        {{ csrf_field() }} --}}
                           
                         <input type="hidden" id="document-type" name="document-type">
           
@@ -205,50 +199,8 @@
           
           
                       </div>
-                          
-                      </form>
           
                     </div>  
-
-                    {{-- <div class="col-md-6">           
-
-                        <div class="input-group mb-3">
-
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                <i class="fas fa-dollar-sign"></i></span>
-                            </div>
-
-                            <input type="number" step="any" min="0" name="amount" placeholder="¿Cual es el monto?" class="form-control" required>
-
-                        </div>
-
-                    </div> --}}
-
-                    {{-- <div class="col-md-12">           
-
-                        <div class="input-group mb-3">
-
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                <i class="fas fa-user"></i></span>
-                            </div>
-
-                            <select class="form-control select2" style="width: 88%" name="id_alumno" require>
-                                <option value="">Seleccione un alumno</option>
-                                @php
-                                    $alumnos = selectUsersWithSicoes();
-                                @endphp
-
-                                @foreach($alumnos as $key => $value)
-                                <option value="{{$value->id_alumno}}">{{$value->email." ".$value->name." ".$value->lastname}}</option>
-                                @endforeach
-
-                            </select>
-
-                        </div>
-
-                    </div> --}}
 
                 </div>
 
@@ -292,32 +244,6 @@
 
 <script>
 
-  // var filters = {
-  //   initDate: null,
-  //   endDate: null,
-  //   init: () => {
-  //     $('#datepicker-report').daterangepicker({
-  //       autoUpdateInput: false,
-  //       locale: {
-  //          cancelLabel: 'Clear'
-  //       },
-  //       ranges: {
-  //        'Hoy': [moment(), moment()],
-  //        'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-  //        'Ultimos 7 días': [moment().subtract(6, 'days'), moment()],
-  //        'Ultimos 30 días': [moment().subtract(29, 'days'), moment()],
-  //        'Este mes': [moment().startOf('month'), moment().endOf('month')],
-  //        'Ultimo mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-  //       },
-  //     }, function(start, end, label) {
-  //       $("#datepicker-report").val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
-  //       filters.initDate = start.format('YYYY-MM-DD');
-  //       filters.endDate = end.format('YYYY-MM-DD');
-  //       Datatable.dataTable.draw();
-  //     });
-  //   }
-  // };
-
   var Datatable = {
     table: $(".table"),
     init: () => {
@@ -328,14 +254,6 @@
           "url": "{{ route('departament.logs.tesis.datatable') }}",
           "type": "POST",
           "headers":{'X-CSRF-TOKEN' : '{{ csrf_token() }}'},
-          // "data": {
-          //   "initDate": () => {
-          //     return filters.initDate;
-          //   }, 
-          //   "endDate": () => {
-          //     return filters.endDate;
-          //   }
-          // }
         },
         "columns": [
           {"data": "enrollment", "render": (data) => {
@@ -345,9 +263,7 @@
           {"data": "full_name"},
           {"data": "equipment"},
           {"data": "classroom"},
-          // {"data": "entry_time"},
-          // {"data": "departure_time"},
-          // {"data": "Date"}
+          {"data": "document"},
         ],
         "language": {
 
@@ -378,7 +294,6 @@
     }
   }
   
-  // filters.init();
   Datatable.init();
 
 </script>
