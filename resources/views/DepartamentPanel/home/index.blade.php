@@ -61,7 +61,7 @@
 
               <div class="inner">
 
-                <h3>Tesis</h3>
+                <h3>Memorias de Estadías</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
                 <br>
@@ -88,7 +88,7 @@
 
               <div class="inner">
 
-                <h3>Bibliografias</h3>
+                <h3>Bibliografías</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
                 <br>
