@@ -158,7 +158,7 @@
                                 <i class="fas fa-calendar"></i></span>
                             </div>
 
-                            <input type="number" step="any" min="0" name="year" placeholder="Año de publicación" class="form-control" required>
+                            <input type="number" step="any" min="0" max="9999" name="year" placeholder="Año de publicación" class="form-control" required maxlength="4">
 
                         </div>
 

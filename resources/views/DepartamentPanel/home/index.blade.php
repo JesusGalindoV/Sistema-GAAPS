@@ -61,7 +61,11 @@
 
               <div class="inner">
 
+<<<<<<< HEAD
                 <h3>Memorias de estadía</h3>
+=======
+                <h3>Memorias de Estadías</h3>
+>>>>>>> 0992cf2c18fbc2af6204bcd0a83b0be8bd7db362
 
                 <!-- <p>{{ $equipments }}</p> -->
                 <br>
@@ -88,7 +92,7 @@
 
               <div class="inner">
 
-                <h3>Bibliografias</h3>
+                <h3>Bibliografías</h3>
 
                 <!-- <p>{{ $equipments }}</p> -->
                 <br>
