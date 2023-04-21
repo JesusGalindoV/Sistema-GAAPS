@@ -133,14 +133,14 @@
                                 <i class="fas fa-credit-card"></i></span>
                             </div>
 
-                            <select name="Nombre" id="Nombre" class="form-control select2" style="width: 88%">
+                            <select name="carrera" id="Nombre" class="form-control select2" style="width: 88%">
                                 <option value="">Seleccione la carrera</option>
                                 @php
                                     $carreras = selectCarreraWithSicoes();
                                 @endphp
 
                                 @foreach($carreras as $key => $value)
-                                <option value="{{$value->CarreraId}}">{{$value->Nombre}}
+                                <option value="{{$value->Nombre}}">{{$value->Nombre}}
                                 </option>
                                 @endforeach
                             </select>

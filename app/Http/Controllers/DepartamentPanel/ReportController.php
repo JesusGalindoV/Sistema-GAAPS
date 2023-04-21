@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Logs\Equipment;
-use App\Models\Alumns\Document;
+use App\Models\Logs\Document;
 use App\Models\Logs\TempUse;
 use App\Models\Logs\ClassRoom;
 use App\Models\Logs\ReportEquipment;
@@ -114,24 +114,46 @@ class ReportController extends Controller {
 
     public function saveDocument(Request $request)
     {
-        $file = $request->file('file-document');
-        $rDocument = $request->input('document-type');
-        $path = "memorias/" . "hola";
+        // $file = $request->file('file-document');
+        // $path = "memorias/";
 
-        $document_type = "memoria";
+        // $document_type = "tesis";
+
+        // if ($file->getClientOriginalExtension() != "pdf") {
+        //     session()->flash("messages","warning|El documento no tiene el formato requerido");
+        //     return redirect()->back();
+        // }
+        
+        // $documentName = $document_type."_".$request->input("autor").".".$file->getClientOriginalExtension();
+
+        // if (file_exists("/".$path."/".$documentName)) {
+        //     unlink("/".$path."/".$documentName);
+        // }
+
+        // $file->move($path, $documentName);
+        // $document = Document::where("route", $path."/".$documentName)->first();
+        
+        // if(!$document) {
+        //     $document = new Document();
+        // }
+
+        // $documentValidate = Document::where("route", "/".$path."/".$documentName)->first();
+
+        $file = $request->file('file-document');
+        $path = "memorias";
+
+        $document_type = "tesis";
 
         if ($file->getClientOriginalExtension() != "pdf") {
             session()->flash("messages","warning|El documento no tiene el formato requerido");
             return redirect()->back();
         }
-        
-        $documentName = $document_type."_".time().".".$file->getClientOriginalExtension();
-        // $documentName = $document_type.".".$file->getClientOriginalExtension();
 
+        $documentName = $document_type."_".$request->input("autor").".".$file->getClientOriginalExtension();
 
-        // if (file_exists("/".$path."/".$documentName)) {
-        //     unlink("/".$path."/".$documentName);
-        // }
+        if (file_exists("/".$path."/".$documentName)) {
+            unlink("/".$path."/".$documentName);
+        }
 
         $file->move($path, $documentName);
         $document = Document::where("route", $path."/".$documentName)->first();
@@ -143,15 +165,14 @@ class ReportController extends Controller {
 
         $documentValidate = Document::where("route", "/".$path."/".$documentName)->first();
 
+
         if(!$documentValidate){
 
-            $document->description = "Documento de inscripción";
-            $document->route = "/".$path."/".$documentName;
-            $document->status = 1;
-            $document->PeriodoId = getConfig()->period_id;
-            $document->alumn_id = 1;
-            $document->type = 1;
-            $document->document_type_id = 3;    
+            $document->Autor = $request->input("autor");
+            $document->Titulo = $request->input("titulo");
+            $document->Carrera = $request->input("carrera");
+            $document->Año = $request->input("year");
+            $document->route = "/".$path."/".$documentName;   
 
             $document->save();
 
@@ -164,7 +185,6 @@ class ReportController extends Controller {
             return redirect()->back();
             
         }
-
         
     }
 }
