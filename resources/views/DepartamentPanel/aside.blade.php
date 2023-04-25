@@ -30,33 +30,20 @@
                         <p>Inicio</p>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="{{route('departament.debit')}}" class="nav-link">
-                        <i class="nav-icon fas fa-credit-card"></i>
-                        <p>Adeudos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                            <a href="{{route('departament.logs.classrooms.index')}}" class="nav-link">
-                                <i class="nav-icon fas fa-atlas"></i>
-                                <p>Bibliografías</p>
-                            </a>
-                        </li>
+ 
                 <li class="nav-item">
                             <a href="{{route('departament.logs.tesis.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>Tesis</p>
                             </a>
-                   </li>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{route('departament.user')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                         <p>Mi cuenta</p>
                     </a>
                 </li>
-
-
 
             </ul>
 

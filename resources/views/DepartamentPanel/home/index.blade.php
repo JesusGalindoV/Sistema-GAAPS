@@ -26,34 +26,6 @@
 
         <div class="row">
 
-
-          <!-- atajo de adeudos -->
-          
-          <div class="col-md-4 col-sm-12">
-
-            <div class="small-box bg-success">
-
-              <div class="inner">
-
-                <h3>Adeudos</h3>
-                <br>
-              
-              </div>
-              <div class="icon">
-
-                <i class="fa fa-file-invoice-dollar"></i>
-
-              </div>
-
-              <!-- i -->
-              
-
-              <a href="{{route('departament.debit')}}" class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
-
-            </div>
-            
-          </div>
-
           <!-- boton de estadias -->
           <div class="col-md-4 col-sm-12">
 
@@ -76,33 +48,6 @@
               <!-- i -->
 
               <a href="{{route('departament.logs.tesis.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
-
-            </div>
-
-          </div>
-
-          <!-- atajo de bibliografias -->
-          <div class="col-md-4 col-sm-12">
-
-            <div class="small-box bg-success">
-
-              <div class="inner">
-
-                <h3>Bibliografías</h3>
-
-                <!-- <p>{{ $equipments }}</p> -->
-                <br>
-
-              </div>
-              <div class="icon">
-
-                <i class="fas fa-atlas"></i>
-
-              </div>
-
-              <!-- i -->
-
-              <a href="{{route('departament.logs.classrooms.index')}}" class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 
