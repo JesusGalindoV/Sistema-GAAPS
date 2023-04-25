@@ -171,11 +171,6 @@
                             <p>ADVERTENCIA, estos documentos solo se pueden subir en formato PDF</p>
                           </div>
                       </div>
-          
-                      <!-- <form action="/file-upload" enctype="multipart/form-data" class="dropzone"  id="my-awesome-dropzone"> -->
-                        {{-- <form action="{{route('alumn.save.document.inscription')}}" method="post" enctype="multipart/form-data">
-                          
-                        {{ csrf_field() }} --}}
                           
                         <input type="hidden" id="document-type" name="document-type">
           

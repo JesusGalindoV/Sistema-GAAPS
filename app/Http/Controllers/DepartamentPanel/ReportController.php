@@ -114,30 +114,6 @@ class ReportController extends Controller {
 
     public function saveDocument(Request $request)
     {
-        // $file = $request->file('file-document');
-        // $path = "memorias/";
-
-        // $document_type = "tesis";
-
-        // if ($file->getClientOriginalExtension() != "pdf") {
-        //     session()->flash("messages","warning|El documento no tiene el formato requerido");
-        //     return redirect()->back();
-        // }
-        
-        // $documentName = $document_type."_".$request->input("autor").".".$file->getClientOriginalExtension();
-
-        // if (file_exists("/".$path."/".$documentName)) {
-        //     unlink("/".$path."/".$documentName);
-        // }
-
-        // $file->move($path, $documentName);
-        // $document = Document::where("route", $path."/".$documentName)->first();
-        
-        // if(!$document) {
-        //     $document = new Document();
-        // }
-
-        // $documentValidate = Document::where("route", "/".$path."/".$documentName)->first();
 
         $file = $request->file('file-document');
         $path = "memorias";
