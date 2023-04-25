@@ -76,50 +76,7 @@ Route::group(['domain' => $alumnDomain], function() {
 				Route::group(['middleware' => ['candidate']
 				], function() {
 					
-					Route::get('/documents',[
-						'uses'=>'PdfController@index', 
-						'as' => 'documents'
-					]);
-
-					Route::post('/documents/show',[
-						'uses'=>'PdfController@showDocuments', 
-						'as' => 'documents.show'
-					]);
-
-					Route::get('/documents/redirectTo',[
-						'uses'=>'PdfController@redirectToDocument', 
-						'as' => 'documents.redirectTo'
-					]);
-
-					Route::get('pdf/cedula/{document?}',[
-						'uses'=>'PdfController@getGenerarCedula', 
-						'as' => 'cedula'
-					]);
-
-					Route::get('pdf/delete/document/{id?}',[
-						'uses'=>'PdfController@deleteDocument', 
-						'as' => 'delete.document'
-					]);
-
-					Route::post('pdf/getDocument/{documentType?}',[
-						'uses'=>'PdfController@getOfficialDocument', 
-						'as' => 'pdf.getDocument'
-					]);
-
-					Route::get('pdf/generar/{document?}',[
-						'uses'=>'PdfController@getGenerarConstancia', 
-						'as' => 'constancia'
-					]);
-
-					Route::post('pdf/generar/{tipo}/{accion}/{pago}',[
-						'uses'=>'PdfController@getGenerarFicha', 
-						'as' => 'fichas'
-					]);
-
-					Route::post('/tab/see',[
-				        'uses' => 'PdfController@tabCache', 
-				        'as' => 'tab.see'
-				    ]);
+					
 
 					Route::get('/user', [
 				        'uses' => 'UserController@index', 
@@ -131,71 +88,8 @@ Route::group(['domain' => $alumnDomain], function() {
 				        'as' => 'user.save'
 				    ]);
 
-				    Route::get('/debits', [
-				        'uses' => 'DebitController@index', 
-				        'as' => 'debit'
-				    ]);
+				   
 
-				    Route::post('/debit/save/card', [
-				        'uses' => 'DebitController@payCard', 
-				        'as' => 'debit.save.card'
-				    ]);
-
-				    Route::post('/debit/save/spei', [
-				        'uses' => 'DebitController@paySpei', 
-				        'as' => 'debit.save.spei'
-				    ]);
-
-				    Route::post('/debit/save/oxxo', [
-				        'uses' => 'DebitController@payOxxo', 
-				        'as' => 'debit.save.oxxo'
-				    ]);
-
-				    Route::get('/debit/note/{id_order?}', [
-				        'uses' => 'DebitController@note', 
-				        'as' => 'debit.note'
-					]);
-
-					Route::post('debit/pay-upload', [
-						'uses' => 'DebitController@pay_upload', 
-						'as' => 'debit.pay.upload'
-					]);
-
-					/*
-					|-------------------------------------------------------------------
-					| Tickets
-					|-------------------------------------------------------------------
-					*/
-
-					Route::get('/tickets',[
-						'uses'=>'TicketController@index', 
-						'as' => 'tickets'
-					]);
-
-					Route::post('/tickets/show',[
-						'uses'=>'TicketController@show', 
-						'as' => 'tickets.show'
-					]);
-
-					/*
-					|-------------------------------------------------------------------
-					| Academic Charge
-					|-------------------------------------------------------------------
-					*/
-
-					Route::get('/academic-charge',[
-						'uses'=>'AcademicChargeController@index', 
-						'as' => 'academicCharge'
-					]);
-
-					Route::post('/academic-charge/show/{period?}',[
-						'uses'=>'AcademicChargeController@show', 
-						'as' => 'academicCharge.show'
-					]);
-
-
-					
-					
 				});
 
 				Route::get('/', [
@@ -203,127 +97,9 @@ Route::group(['domain' => $alumnDomain], function() {
 			        'as' => 'home'
 			    ]);
 
-			    Route::post('/home/save-problem', [
-			        'uses' => 'HomeController@saveProblem', 
-			        'as' => 'home.problem'
-			    ]);
+			  
 
-			    Route::group(["middleware"=>["inscriptionOpen"]
-				],function(){
-
-					Route::group(["middleware" => ["inscription"]
-					],function(){
-
-						Route::get('/re-inscripcion',[
-							'uses' => 'FormController@indexForm', 
-							'as' => 'form.inscription'
-						])->middleware('notnoob');
-
-						Route::get('/inscripcion',[
-							'uses' => 'FormController@indexInscription', 
-							'as' => 'form.reinscription'
-						])->middleware('noob');
 				
-						Route::post('form/save', [
-							'uses' => 'FormController@save',
-							'as'   => 'form.save'
-						]);
-
-						Route::post('form/save/inscription', [
-							'uses' => 'FormController@saveInscription',
-							'as'   => 'save.inscription'
-						]);
-
-						Route::post('form/getMunicipio', [
-							'uses' => 'FormController@getMunicipios',
-							'as'   => 'form.getMunicipio'
-						]);
-				    });
-
-				    Route::group(["middleware"=> ["inscriptionFaseTwo"] 
-					],function(){
-
-					    //Pago de inscription
-					    Route::get('/payment', [
-					        'uses' => 'PaymentController@index', 
-					        'as' => 'payment'
-						]);
-						
-					    Route::post('/pay-card', [
-						        'uses' => 'PaymentController@pay_card', 
-						        'as' => 'pay.card'
-						]);
-
-						Route::post('/pay-cash', [
-						        'uses' => 'PaymentController@pay_cash', 
-						        'as' => 'pay.cash'
-						]);
-
-						Route::post('/pay-spei', [
-						        'uses' => 'PaymentController@pay_spei', 
-						        'as' => 'pay.spei'
-						]);
-
-						Route::post('/pay-upload', [
-							'uses' => 'PaymentController@pay_upload', 
-							'as' => 'pay.upload'
-						]);
-					});
-
-					Route::group(["middleware"=>["inscriptionFaseThree"]
-					],function()
-					{
-						Route::get('/payment/note', [
-					        'uses' => 'PaymentController@note', 
-					        'as' => 'payment.note'
-						]);
-
-						Route::post('/pay-rollback/{orderId?}', [
-					        'uses' => 'PaymentController@rollBack', 
-					        'as' => 'pay.rollback'
-					    ]);
-					});
-			    });		   
-
-			    Route::group(["middleware"=>["inscriptionFaseFour"]
-				],function(){
-
-					//charge academic
-				    Route::get('/charge', [
-				        'uses' => 'ChargeController@index', 
-				        'as' => 'charge'
-				    ]);
-
-				    Route::post('/charge/save', [
-				        'uses' => 'ChargeController@save', 
-				        'as' => 'charge.save'
-				    ]);
-
-				    Route::post('/charge/finally', [
-				        'uses' => 'ChargeController@finally', 
-				        'as' => 'charge.finally'
-				    ]);
-				});
-
-				Route::post('/save/document/inscription', [
-					        'uses' => 'PdfController@saveDocument', 
-					        'as' => 'save.document.inscription'
-				]);
-
-			    Route::get('/pay-cash-oxxo', [
-					        'uses' => 'PaymentController@pay_cash_oxxo', 
-					        'as' => 'pay.oxxo'
-				]);
-
-				Route::get('/pay-cash-spei', [
-					        'uses' => 'PaymentController@pay_cash_spei', 
-					        'as' => 'pay.spei.view'
-				]);
-
-				Route::post('/save/document', [
-					        'uses' => 'PaymentController@pay_cash_spei', 
-					        'as' => 'pay.spei.view'
-				]);
 			});
 	  	});
 	});

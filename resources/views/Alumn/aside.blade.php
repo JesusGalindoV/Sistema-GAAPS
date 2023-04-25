@@ -42,71 +42,8 @@
                     </a>
 
                 </li>
-               
-                @if(Auth::guard('alumn')->user()->inscripcion < 3 && getConfig()->open_inscription==1)
-                <li class="nav-item">
-                    <a href="{{isNoob(Auth::guard('alumn')->user()->id)}}" class="nav-link">
-                        <i class="nav-icon fas fa-pen"></i>
-                        <p>
-                           {{ Auth::guard('alumn')->user()->id_alumno != null ?  'Reinscripción' : 'Inscripción'}}
-                           
-                        </p>
-                    </a>
-                </li>
-                @endif
 
                 @if(Auth::guard('alumn')->user()->id_alumno != null)
-
-                    <li class="nav-item">
-
-                        <a href="{{route('alumn.documents')}}" class="nav-link">
-
-                            <i class="nav-icon fas fa-folder"></i>
-                            <p>
-                                Documentos
-                            </p>
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a href="{{route('alumn.debit')}}" class="nav-link">
-
-                            <i class="nav-icon fas fa-credit-card"></i>
-                            <p>
-                                Adeudos
-                            </p>
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a href="{{ route ('alumn.tickets')}}" class="nav-link">
-
-                            <i class="nav-icon fas fa-file-alt"></i>
-                            <p>
-                                Recibos
-                            </p>
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a href="{{route('alumn.academicCharge')}}" class="nav-link">
-
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                Carga Académica
-                            </p>
-                        </a>
-
-                    </li>
-
 
                     <li class="nav-item">
                         <a href="{{route('alumn.user')}}" class="nav-link">
