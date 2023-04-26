@@ -47,22 +47,6 @@
 
               <h3 class="profile-username text-center">{{$user->name}}</h3>
 
-              
-
-<!--               <ul class="list-group list-group-unbordered mb-3">
-                <li class="list-group-item">
-                  <b>Followers</b> <a class="float-right">1,322</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Following</b> <a class="float-right">543</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Friends</b> <a class="float-right">13,287</a>
-                </li>
-              </ul> -->
-
-              <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
-
             </div>
 
           </div>
@@ -79,8 +63,6 @@
 
                 <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Noticias</a></li>
                 <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Editar</a></li>
-                <li style="margin-top: 10px;margin-left: 5%;">Recuerda que el cambio de estos datos, no alteran tu registro de la Universidad</li>
-
               </ul>
 
             </div>
@@ -95,17 +77,17 @@
 
                     <div class="user-block">
 
-                      <img class="img-circle img-bordered-sm" src="{{asset('img/temple/unisierra.png')}}" alt="user image">
+                      <!-- <img class="img-circle img-bordered-sm" src="{{asset('img/temple/unisierra.png')}}" alt="user image"> -->
 
                       <span class="username">
 
-                        <a href="#">Unisierra</a>
+                        <a href="#">GAAPS</a>
 
                         <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
 
                       </span>
 
-                      <span class="description">Shared publicly - 7:30 PM today</span>
+                      <span class="description">Shared publicly - 7:10 PM today</span>
 
                     </div>
 

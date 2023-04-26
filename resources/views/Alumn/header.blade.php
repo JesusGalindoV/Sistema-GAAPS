@@ -29,7 +29,7 @@
 
                         <div class = "pull-right">
                           
-                            <a href="{{ route('alumn.logout') }}" class="btn btn-default btn-flat">salir</a>
+                            <a href="{{ route('alumn.logout') }}" class="btn btn-default btn-flat">Salir</a>
                           
                         </div>
 

@@ -1,11 +1,11 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: green !important;">
 
-    <a href="/alumn" class="brand-link">
+    <a href="/portal" class="brand-link">
 
         <img src="{{ asset('img/temple/unisierra.png') }}" alt="" class="brand-image img-circle elevation-3"
             style="opacity: .8">
 
-        <span class="brand-text font-weight-light">Unisierra</span>
+        <span class="brand-text font-weight-light">Archivero</span>
 
     </a>
 
@@ -21,7 +21,7 @@
 
             <div class="info">
 
-                <a href="#" class="d-block">{{ Auth::guard('alumn')->user()->name }}</a>
+                <a href="{{route('alumn.user')}}" class="d-block">{{ Auth::guard('alumn')->user()->name }}</a>
 
             </div>
 
@@ -55,6 +55,18 @@
                     </li>
                 
                 @endif
+
+                <li class="nav-item">
+
+                    <a href="{{route('alumn.home')}}" class="nav-link">
+
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Ver memorias de estadía
+                        </p>
+                    </a>
+
+                </li>
 
             </ul>
 

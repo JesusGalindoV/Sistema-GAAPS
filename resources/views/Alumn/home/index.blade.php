@@ -22,16 +22,6 @@
           
         </div>
         
-        <div class="col-sm-6">
-          
-          <ol class="breadcrumb float-sm-right">
-            
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            
-          </ol>
-          
-        </div>
-        
       </div>
       
     </div>
@@ -46,11 +36,11 @@
 
         <div class="row">
 
-          <div class="col-md-12"> 
+          <!-- <div class="col-md-12"> 
 
                 <h4>Mi tablero</h4> 
 
-          </div>
+          </div> -->
 
           <div class="col-md-3 col-sm-12">
 
@@ -72,6 +62,34 @@
 
               @if(strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx"))
               <a href="{{route('alumn.user')}}" class="small-box-footer">Ver mi perfil<i class="fas fa-arrow-circle-right"></i></a>
+              @else
+              <a href="#" class="small-box-footer">Ir a perfil<i class="fas fa-arrow-circle-right"></i></a>
+              @endif
+
+            </div>
+            
+          </div>
+
+          <div class="col-md-3 col-sm-12">
+
+            <div class="small-box {{$boxCorreo}}">
+
+              <div class="inner">
+
+                <h3>Memorias</h3>
+
+                <p>Ver memorias de estadía</p>
+
+              </div>
+
+              <div class="icon">
+
+                <i class="fa fa-book"></i>
+
+              </div>
+
+              @if(strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx"))
+              <a href="{{route('alumn.user')}}" class="small-box-footer">Ver memorias<i class="fas fa-arrow-circle-right"></i></a>
               @else
               <a href="#" class="small-box-footer">Ir a perfil<i class="fas fa-arrow-circle-right"></i></a>
               @endif

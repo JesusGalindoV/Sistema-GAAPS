@@ -21,10 +21,6 @@
     }
 </style>
 
-
-
-
-
 <div class="content">
     <h1>Portal en Mantenimiento</h1>
     <h2>Intentelo más tarde</h2>

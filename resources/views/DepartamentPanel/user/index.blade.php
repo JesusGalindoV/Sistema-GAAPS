@@ -18,12 +18,6 @@
         <div class="col-sm-6">
           <h1>Mi Perfil</h1>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Unisierra</a></li>
-            <li class="breadcrumb-item active">Mi cuenta</li>
-          </ol>
-        </div>
       </div>
     </div>
   </section>
@@ -48,7 +42,7 @@
 
               <h3 class="profile-username text-center">{{$user->name}}</h3>
 
-              <p class="text-muted text-center">Centeo de cómputo</p>
+              <p class="text-muted text-center">Administrador del sistema</p>
 
             </div>
 

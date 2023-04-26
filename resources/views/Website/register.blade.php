@@ -47,95 +47,9 @@
 
 <div class="back2">
 
-	<div class="row" style="margin: 1%">
+	<div class="row" style="margin-right: 15%; margin-left: 15%;">
 
-		<div class="col-md-6">
-
-			<div class="row">
-
-				<div class="col-md-12 osos-title">
-					<h1 class="feel-title">Se un Oso Unisierra</h1>
-				</div>
-
-				<div class="col-md-11">
-
-					<div class="feed">
-
-						<div class="feed_content">
-
-							<div class="feed-header">
-								<h3>#Inscripciones.</h3>
-							</div>
-
-							<div class="feed-body">
-								<p>El módulo de inscripciones ya está disponible. Primero registrate en el portal llenando los datos en el panel derecho; Segundo, accede con tus datos y llena el formulario.</p>
-							</div>
-
-						</div>
-						
-					</div>
-
-					<div class="feed">
-
-						<div class="feed_content">
-
-							<div class="feed-header">
-								<h1>#Re-Inscripciones.</h1>
-							</div>
-
-							<div class="feed-body">
-								<p>El módulo de reinscripciones es para alumnos. Si nunca has entrado al portal solicita tu calve de activación en fb/unisierra y una vez que a tengas da click en el boton de "Acceso Alumnos"</p>
-							</div>
-
-						</div>
-						
-					</div>
-
-					<div class="feed">
-
-						<div class="feed_content">
-
-							<div class="feed-header">
-								<h1>#Nuevas Formas de Pago</h1>
-							</div>
-
-							<div class="feed-body">
-								<p> Ahora puedes pagar tu Inscripción con depósito en el banco, con tu tarjeta de débito/crédito, con transferencia o en Efectivo pagando en OXXO. No olvides que algunos métodos de pago aplican comisión.</p>
-							</div>
-
-						</div>
-						
-					</div>
-
-					<div class="feed">
-
-						<div class="feed_content">
-
-							<div class="feed-header">
-								<h1>#Usuarios iPhone</h1>
-							</div>
-
-							<div class="feed-body">
-								<p>Al momento de gestionar tus pagos asegurate de usar un navegador seguro como Chrome, Firexfox, Brave u Opera en tu móvil, de lo contrario el portal devolverá un error al intentar pagar.</p>
-							</div>
-
-						</div>
-						
-					</div>
-
-				</div>
-
-				<div class="col-md-12">
-
-					<img src="{{asset('img/temple/unisierra.png')}}" class="osos_alfa">
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="col-md-6">
+		<div class="col-md-12">
 
 			<div class="card card-custom">
 
@@ -147,7 +61,7 @@
 
 						<div class="row">
 
-							<h3>Registro Nuevo Ingreso</h3>
+							<h3>Registro Usuario</h3>
 
 						</div>
 
@@ -305,7 +219,6 @@
 						class="btn btn-success btn-lg btn-block " 
 						style="color: white; border-radius: 20px; margin:0rem 2rem; font-weight: 900;font-size: 20px;">
 				 Acceso
-				 Alumnos
 				</a>
 				<!-- <a href="{{route('alumn.home')}}" 
 						class="btn btn-warning btn-lg btn-block button-custom my-2 my-sm-0" 
