@@ -61,7 +61,7 @@
 
 						<div class="row">
 
-							<h3>Registro Usuario</h3>
+							<h3 class="">Registro Usuario</h3>
 
 						</div>
 
@@ -216,7 +216,7 @@
 
 			<div class="btns-row">
 				<a href="{{route('alumn.home')}}" 
-						class="btn btn-success btn-lg btn-block " 
+						class="btn btn-success btn-lg btn-block button-register" 
 						style="color: white; border-radius: 20px; margin:0rem 2rem; font-weight: 900;font-size: 20px;">
 				 Acceso
 				</a>
