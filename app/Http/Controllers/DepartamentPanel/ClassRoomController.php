@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Logs\Equipment;
 use App\Models\Logs\TempUse;
 use App\Models\Logs\ClassRoom;
-use App\Models\Sicoes\Alumno;
 use App\Models\Alumns\User;
 use Carbon\Carbon;
 

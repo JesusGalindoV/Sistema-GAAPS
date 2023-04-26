@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Alumns\Debit;
 use App\Models\Alumns\User;
-use App\Models\Sicoes\Alumno;
 use App\Models\PeriodModel;
 use App\Library\Sicoes;
 use Input;

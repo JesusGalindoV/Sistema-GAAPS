@@ -9,7 +9,6 @@ use App\Models\Alumns\Ticket;
 use App\Models\Alumns\Document;
 use App\Models\AdminUsers\Problem;
 use App\Http\Controllers\Controller;
-use App\Models\Sicoes\Alumno;
 use App\Library\Log;
 use DB;
 
