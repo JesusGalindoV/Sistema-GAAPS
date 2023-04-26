@@ -15,59 +15,12 @@ use DB;
 
 class HomeController extends Controller
 {
-    private $logger;
-
-    public function callAction($method, $parameters)
-    {
-        $this->logger = new Log(App\Http\Controllers\Alumn\HomeController::class);
-        return parent::callAction($method, $parameters);
-    }
 
     public function index()
     {
-        // $this->logger->info("Hola mundo logger");
-        // $user = current_user();
-
-        // switch ($user->inscripcion) {
-        //     case 0:
-        //         $status = 'Inscribirse';
-        //         break;
-        //     case 1:
-        //         $status = 'Realizar pago';
-        //         break;
-        //     case 2:
-        //         $status = 'Validación';
-        //         break;
-        //     case 3:
-        //         $status = 'Carga Académica';
-        //         break;
-        //     case 4:
-        //         $status = 'Inscrito';
-        //         break;
-        //     default:
-        //         $status = "Inscribirse";
-        //         break;
-        // }
-
-        // //documentos
-        // $documents = Document::where("alumn_id","=",$user->id)->get();
-
-        // //adeudos
-        // $query = [["id_alumno","=",$user->id_alumno],["status","=","0"],["debit_type_id","<>", 1]];
-        // $debit = Debit::where($query)->get();
-        // $total = $debit->count("amount");
-
-
-        // //tickets
-        // $tickets = Ticket::where("alumn_id","=",$user->id)->get();
-
-        // return view('Alumn.home.index')->with([
-        //     "status" => $status,
-        //     'documents' => $documents,
-        //     'debits' => $total,
-        //     'tickets' => $tickets
-        // ]);
 
         return view('Alumn.home.index');
+        
     }
+
 }
