@@ -28,7 +28,6 @@ function selectTable($tableName, $item=null,$value=null,$limit=null)
     }
 }
 
-
 function insertIntoPortal($tableName,$array)
 {
   try
