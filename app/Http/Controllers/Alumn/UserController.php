@@ -18,23 +18,6 @@ class UserController extends Controller
 		return view('Alumn.user.index')->with(["user" => $current_user]);
 	}
 
-    public function notify(Request $request)
-    {
-        return response()->json(Notify::where("id_target", current_user()->id)
-                                ->where("target", "users")
-                                ->where("status", "0")->get());
-    }
-
-    public function seeNotify($route,$id)
-    {
-        $notify = Notify::where("id_target", $id)->where("target", "users")->get();
-        foreach ($notify as $key => $value) {
-            $value->status = 1;
-            $value->save();
-        }
-        return redirect()->route($route);
-    }
-
     public function save(Request $request, User $user)
     {
         if ($request->input('password')!=null)
