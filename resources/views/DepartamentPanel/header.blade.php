@@ -25,7 +25,7 @@
 
             <div class = "pull-right">
               
-              <a href="{{ route('departament.logout') }}" class="btn btn-default btn-flat">salir</a>
+              <a href="{{ route('departament.logout') }}" class="btn btn-default btn-flat">Salir</a>
               
             </div>
 
