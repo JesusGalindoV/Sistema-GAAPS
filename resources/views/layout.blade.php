@@ -5,8 +5,8 @@
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Universidad de la sierra, Unisierra, Universidad sonora, Universidad en la sierra, Moctezuma, Sonora, Moctezuma sonora, Portal de alumnos unisierra, portal de alumnos, portal de inscripciones, alumnos, portal">
-    <meta name="description" content="Bienvenido al sistema de inscripciones de la universidad de la sierra.">
+    <meta name="keywords" content="sistema tesis, memorias unisierra, memorias de estadia alumnos">
+    <meta name="description" content="Bienvenido al sistema de memorias de estadías de alumnos">
     <link rel="icon" type="image/png" href="{{asset('img/temple/unisierra.png')}}" />
 
     <!-- Font Awesome -->

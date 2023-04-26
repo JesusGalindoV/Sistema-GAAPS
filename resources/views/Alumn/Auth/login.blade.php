@@ -10,11 +10,6 @@
 
         <div class="row" style="width: 100%">
 
-                <div class="col-md-12 osos-title2">
-					<h1 class="feel-title">#GAAPS</h1>
-				</div>
-
-
             <div class="col-lg-12 col-md-12">
 
 
@@ -73,7 +68,7 @@
                         <!-- REGISTRO DE NUEVO INGRESO --> 
                         <div class="row">
                             <div class="col-md-12">
-                                <center><a href="{{route('alumn.register')}}" class="btn boton-success">Registrarse</a></center>
+                                <a href="{{route('alumn.register')}}" class="btn btn-block boton-success button-register">Registrarse</a>
                             </div>
                         </div>
 

@@ -265,11 +265,19 @@ header
 {
     display: block;
     margin: 0px auto;
-    width: 85px;
+    width: 120px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.button-register{
+    background-color: #60100B !important;
+    border: #60100B !important;
 }
 
 .feel-title{
-    color: #fff;
+    color: #1F1F24;
+    font-weight: bold;
 }
 
 .card-custom
