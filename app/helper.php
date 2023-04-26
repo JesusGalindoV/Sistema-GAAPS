@@ -1,18 +1,10 @@
 <?php 
 
 use App\Models\AdminUsers\AdminUser;
-use App\Models\Alumns\Notify;
-use App\Models\Alumns\DebitType;
-use App\Models\Alumns\HighAverages;
-use App\Models\PeriodModel;
-use App\Models\CarreraModel;
 use App\Models\ConfigModel;
 use App\Models\Alumns\Document;
 use App\Models\Alumns\DocumentType;
 use App\Models\Alumns\User;
-use App\Models\Alumns\Debit;
-use App\Models\Alumns\FailedRegister;
-use App\Models\Alumns\Ticket;
 use Carbon\Carbon;
 use Mpdf\Mpdf;
 use Illuminate\Support\Facades\Storage;
