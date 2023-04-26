@@ -15,6 +15,6 @@ class Log {
             "ID [".session()->getId()."]", 
             "class [" . $this->class."]", 
             "menssage [" . $message . "]"
-        ]));
+        ])); //
     }
 }
