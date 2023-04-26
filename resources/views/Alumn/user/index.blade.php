@@ -47,7 +47,7 @@
 
               <h3 class="profile-username text-center">{{$user->name}}</h3>
 
-              <p class="text-muted text-center">{{ $user->sAlumn->PlanEstudio->Carrera->Nombre }}</p>
+              
 
 <!--               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
