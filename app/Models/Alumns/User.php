@@ -14,16 +14,6 @@ class User extends Authenticatable
 {
     protected $table = "users";
 
-    protected $appends = ["FullName"];
-
-    public $steps = [
-        "form" => 0,
-        "payment" => 1,
-        "waiting" => 2,
-        "charge" => 3,
-        "complete" => 4
-    ];
-
     public function requestPassword() {
         return $this->hasMany('\App\Models\Alumns\PasswordRequest', "id", "alumn_id");
     }
