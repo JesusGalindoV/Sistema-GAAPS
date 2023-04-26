@@ -26,7 +26,7 @@
 
                         <div class="col-md-12">
 
-					        <!-- <img src="{{asset('img/temple/unisierra.png')}}" alt='Logo Unisierra' class="osos_alfa_login"> -->
+					        <img src="{{asset('img/temple/unisierra.png')}}" alt='Logo Unisierra' class="osos_alfa_login">
 
 				        </div>
 

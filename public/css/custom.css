@@ -85,12 +85,11 @@
 
 .back2
 {
-    background: url(../img/temple/fondo.png);
+    background: url(../img/temple/fondo.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    filter: blur(1px);
 /*    height: 100%;*/
     width: 100%;
     padding-top: 5%;
