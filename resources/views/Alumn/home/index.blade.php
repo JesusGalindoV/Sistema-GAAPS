@@ -3,12 +3,8 @@
 @section('content-alumn')
 
 @php
-  $box = $status?"bg-success":"bg-danger";
  
-  
-  $styleBox = $debits == 0?"style='color:white;'":"";
   $boxCorreo = strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx")?"bg-info":"bg-danger";
-  
  
 @endphp
 
