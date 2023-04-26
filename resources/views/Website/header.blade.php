@@ -11,14 +11,6 @@
 			  <li class="nav-item active">
 		        <a class="nav-link link-custom header-link" href="{{route('home')}}">Inicio</a>
 		      </li>
-			  
-		      <li class="nav-item active">
-		        <a class="nav-link link-custom header-link" href="http://unisierra.edu.mx/inicio/aspirantes/oferta-educativa/" target="_blank">Plan de estudios</a>
-		      </li>
-
-			  <li class="nav-item active">
-		        <a class="nav-link link-custom header-link" href="{{route('alumn.users.first_step')}}">Activar cuenta</a>
-		      </li>
 
 		    </ul>
 	  	</div>
