@@ -54,7 +54,7 @@
                 <th>Titulo</th>
                 <th>Carrera</th>
                 <th style="width: 10px">Año</th>
-                <th>Documento</th>
+                {{-- <th>Documento</th> --}}
               </tr>  
             </thead>
           </table>
@@ -258,7 +258,7 @@
           {"data": "full_name"},
           {"data": "equipment"},
           {"data": "classroom"},
-          {"data": "document"},
+          // {"data": "document"},
         ],
         "language": {
 

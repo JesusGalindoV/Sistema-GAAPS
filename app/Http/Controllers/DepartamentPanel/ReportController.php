@@ -14,10 +14,19 @@ use DB;
 class ReportController extends Controller {
 
 	public function index() {
+
+        $query = DB::table("memorias")->where("id","<>",null)->get();
+
+        dd($query);
+
 		return view("DepartamentPanel.logs.tesis.index");
 	}
 
 	public function datatable(Request $request) {
+
+        // $query = DB::table("memorias")->where("id","<>",null)->get();
+        // dd($query);
+
         $filter = isset($request->get('search')['value']) && $request->get('search')  ?$request->get('search')['value']:false;
 
         $start = $request->get('start');
