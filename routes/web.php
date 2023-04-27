@@ -812,6 +812,12 @@ Route::group(['domain' => $alumnDomain], function() {
 								'uses' => 'ReportController@saveDocument', 
 								'as' => 'tesis.save'
 							]);
+
+							Route::get('/tesis/delete/{id}', [
+								'uses' => 'ReportControlle@delete', 
+								'as' => 'tesis.delete'
+							]);	
+
 						});
 
 						Route::group(["prefix" => "equipments"], function() {
