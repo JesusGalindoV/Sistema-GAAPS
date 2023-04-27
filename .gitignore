@@ -5,6 +5,7 @@
 /public/comprobantes
 /public/img/alumn
 /public/documentos
+/public/memorias
 /public/tickets
 /public/img/comprobantes
 .env
