@@ -22,7 +22,8 @@ class ReportController extends Controller {
 		return view("DepartamentPanel.logs.tesis.index");
 	}
 
-	public function datatable(Request $request) {
+	public function datatable(Request $request) 
+    {
 
         // $query = DB::table("memorias")->where("id","<>",null)->get();
         // dd($query);
@@ -85,25 +86,29 @@ class ReportController extends Controller {
         // ]);
 
         //---------------------------------------------------------------------------------
-        $users = DB::table("memorias")->where("id","<>",null)->get();
-        $res = [ "data" => []];
+        $filter = $request->get('search') && isset($request->get('search')['value'])?$request->get('search')['value']:false;
+        $start = $request->get('start');
+        $length = $request->get('length');
 
-        foreach($users as $key => $value)
-        {  
-            // $img = "<img src='".asset($value->photo)."' style='width:70px'>";
-            // $buttons = "<div class='btn-group'><a href='".route("admin.users.edit", $value->id)."'class='btn btn-warning'><i class='fa fa-eye' style='color:white'></i></a><button class='btn btn-danger btnDelete' user_id='".$value->id."'><i class='fa fa-times'></i></button></div>";
-         
-            array_push($res["data"],[
-                (count($users)-($key+1)+1),
-                $value->Autor,
-                $value->Titulo,
-                $value->Carrera,
-                $value->Año,
-                $value->route
-            ]);
+        $query = Document::where("id","<>",null);
+
+        if ($filter) {
+            $query = $query->where(function($query) use ($filter){
+                $query->orWhere('document_type.Autor', 'like', '%'. $filter .'%')
+                    ->orWhere('document.Titulo', 'like', '%'. $filter . '%')
+                    ->orWhere('document.Carrera', 'like', '%'. $filter . '%');
+            });
         }
-        
-        return response()->json($res);
+
+        $filtered = $query->count();
+
+        $query->skip($start)->take($length)->get();
+
+        return response()->json([
+            "recordsTotal" => $query->count(),
+            "recordsFiltered" => $filtered,
+            "data" => $query->get()
+        ]);
 
 	}
 
