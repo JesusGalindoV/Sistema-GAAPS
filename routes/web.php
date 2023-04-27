@@ -97,6 +97,11 @@ Route::group(['domain' => $alumnDomain], function() {
 					'uses' => 'MemoriasController@index',
 					'as' => 'tesis'
 				]);
+
+				Route::post('user/datatable', [
+					'uses' => 'MemoriasController@datatable', 
+					'as' => 'tesis.datatable'
+				]);
 				
 			});
 	  	});
