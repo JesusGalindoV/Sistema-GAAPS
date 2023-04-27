@@ -62,7 +62,7 @@
 
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Ver memorias de estadía
+                            Memorias de estadía
                         </p>
                     </a>
 
