@@ -88,11 +88,7 @@
 
               </div>
 
-              @if(strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx"))
-              <a href="{{route('alumn.user')}}" class="small-box-footer">Ver memorias<i class="fas fa-arrow-circle-right"></i></a>
-              @else
-              <a href="#" class="small-box-footer">Ir a perfil<i class="fas fa-arrow-circle-right"></i></a>
-              @endif
+              <a href="{{route('alumn.tesis')}}" class="small-box-footer">Ver memorias<i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
             
