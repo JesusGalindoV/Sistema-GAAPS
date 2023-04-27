@@ -54,7 +54,8 @@
                 <th>Titulo</th>
                 <th>Carrera</th>
                 <th style="width: 10px">Año</th>
-                <th>route</th>
+                <th>Documento</th>
+                <th>Acciones</th>
               </tr>  
             </thead>
           </table>
@@ -258,7 +259,19 @@
           {"data": "Titulo"},
           {"data": "Carrera"},
           {"data": "Año"},
-          {"data": "route"}
+          // {"data": "route"}
+          {
+            "data": "route",
+            "render": (data) => {
+              return `<a href="${data}" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i></a>`;
+            }
+          },
+          {
+            "data": "route",
+            "render": (data) => {
+              return `<a href="${data}" target="_blank" class="btn btn-danger"><i class="fas fa-trash"></i></a>`;
+            }
+          }
           // {"data": "document"},
         ],
         "language": {
