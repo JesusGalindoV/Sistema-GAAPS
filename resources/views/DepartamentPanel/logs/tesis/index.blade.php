@@ -269,7 +269,8 @@
           {
             "data": "route",
             "render": (data) => {
-              return `<a href="${data}" target="_blank" class="btn btn-danger"><i class="fas fa-trash"></i></a>`;
+              return `<button class='btn btn-danger btnDeleteAlumn' title='Eliminar  title='Imprimir'><i class='fa fa-times'></i></button></div>`;
+              // return `<button class='btn btn-danger btnDeleteAlumn' title='Eliminar alumno' alumnId = '"+data.id+"' title='Imprimir'>"+"<i class='fa fa-times'></i></button></div>`;
             }
           }
           // {"data": "document"},
@@ -304,6 +305,26 @@
   }
   
   Datatable.init();
+
+
+  $(".table").on("click","button.btnDeleteAlumn",function(){
+							var id = $(this).attr("alumnId");
+							swal.fire({
+								title: '¿Esta seguro de eliminar esta memoría de estadia?',
+								text: "¡todo registro de el sera borrado!",
+								type: 'warning',
+								showCancelButton: true,
+								confirmButtonColor: '#3085d6',
+								cancelButtonColor: '#d33',
+								cancelButtonText: 'Cancelar',
+								confirmButtonText: 'Si, estoy seguro'
+							}).then((result)=>{
+							  if (result.value)
+							  {
+								window.location = "/admin/alumns/delete/"+id;        
+							  }
+							});
+						});
 
 </script>
 
