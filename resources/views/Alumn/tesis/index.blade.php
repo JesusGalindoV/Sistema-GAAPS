@@ -37,9 +37,9 @@
                 <th style="width: 10px">#</th>
                 <th>Autor</th>
                 <th>Titulo</th>
-                <th>Carrera</th>
+                <th style="width: 200px">Carrera</th>
                 <th style="width: 10px">Año</th>
-                <th>Documento</th>
+                <th style="width: 10px">Documento</th>
               </tr>  
             </thead>
           </table>
