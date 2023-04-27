@@ -163,4 +163,14 @@ class ReportController extends Controller {
         }
         
     }
+
+    public function delete($id)
+	{
+		$tesis = Document::find($id);
+		Document::where("id","=",$tesis->id)->delete();
+		$tesis->delete();
+		session()->flash("messages","success|Todos los registros fueron borrados");
+		return redirect()->back();
+    }
+
 }

@@ -813,8 +813,8 @@ Route::group(['domain' => $alumnDomain], function() {
 								'as' => 'tesis.save'
 							]);
 
-							Route::get('/tesis/delete/{id}', [
-								'uses' => 'ReportControlle@delete', 
+							Route::get('/delete/{id}', [
+								'uses' => 'ReportController@delete', 
 								'as' => 'tesis.delete'
 							]);	
 
