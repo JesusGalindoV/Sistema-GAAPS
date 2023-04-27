@@ -252,14 +252,13 @@
           "headers":{'X-CSRF-TOKEN' : '{{ csrf_token() }}'},
         },
         "columns": [
-          {"data": "enrollment", "render": (data) => {
-            return "lol";
+          {"data": "id", "render": (data) => {
+            return `${data}`;
           }},
           {"data": "Autor"},
           {"data": "Titulo"},
           {"data": "Carrera"},
           {"data": "Año"},
-          // {"data": "route"}
           {
             "data": "route",
             "render": (data) => {
@@ -272,7 +271,6 @@
               return `<button class='btn btn-danger btnDeleteTesis' id='${data}' title='Eliminar memoría' title='eliminar'><i class='fas fa-trash'></i></button></div>`;
             }
           }
-          // {"data": "document"},
         ],
         "language": {
 
