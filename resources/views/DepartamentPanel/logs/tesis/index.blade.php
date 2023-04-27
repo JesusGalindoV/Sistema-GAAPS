@@ -54,7 +54,7 @@
                 <th>Titulo</th>
                 <th>Carrera</th>
                 <th style="width: 10px">Año</th>
-                {{-- <th>Documento</th> --}}
+                <th>route</th>
               </tr>  
             </thead>
           </table>
@@ -254,10 +254,11 @@
           {"data": "enrollment", "render": (data) => {
             return "lol";
           }},
-          {"data": "number"},
-          {"data": "full_name"},
-          {"data": "equipment"},
-          {"data": "classroom"},
+          {"data": "Autor"},
+          {"data": "Titulo"},
+          {"data": "Carrera"},
+          {"data": "Año"},
+          {"data": "route"}
           // {"data": "document"},
         ],
         "language": {
