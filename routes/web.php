@@ -264,6 +264,13 @@ Route::group(['domain' => $alumnDomain], function() {
 
 						});
 
+						Route::group(["prefix" => "users"], function() {
+							Route::get('/', [
+								'uses' => 'ReportUsersController@index',
+								'as' => 'users.index'
+							]);
+						});
+
 						Route::group(["prefix" => "tesis"], function() {
 							Route::get('/', [
 						        'uses' => 'ReportController@index', 

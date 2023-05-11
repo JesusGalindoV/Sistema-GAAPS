@@ -39,6 +39,13 @@
                 </li>
 
                 <li class="nav-item">
+                            <a href="{{route('departament.logs.users.index')}}" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Usuarios</p>
+                            </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{route('departament.user')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                         <p>Mi cuenta</p>
