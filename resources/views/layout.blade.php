@@ -80,7 +80,6 @@
     <!-- html2pdf -->
     <script src="{{asset('plugins/html2pdf/dist/html2pdf.bundle.min.js')}}"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script src="{{asset('js/broadcast/notifications.js')}}"></script>
     
     {!! htmlScriptTagJsApi() !!}
 </head>

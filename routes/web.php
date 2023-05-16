@@ -269,6 +269,11 @@ Route::group(['domain' => $alumnDomain], function() {
 								'uses' => 'ReportUsersController@index',
 								'as' => 'users.index'
 							]);
+
+							Route::get('/datatable', [
+								'uses' => 'ReportUsersController@datatable',
+								'as' => 'users.datatable'
+							]);
 						});
 
 						Route::group(["prefix" => "tesis"], function() {
