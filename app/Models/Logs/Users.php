@@ -4,7 +4,7 @@ namespace App\Models\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class users extends Model
 {
 
     protected $table = "users";
@@ -14,9 +14,6 @@ class Users extends Model
         'name',
         'lastname',
         'email',
-        'curp',
-        'tour',
-        'photo'
     ];
 
 }

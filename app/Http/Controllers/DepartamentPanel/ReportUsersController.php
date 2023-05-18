@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Logs\Equipment;
-use App\Models\Logs\Users;
+use App\Models\Logs\users;
+use App\Models\Logs\Document;
 use App\Models\Logs\TempUse;
 use App\Models\Logs\ClassRoom;
 use App\Models\Logs\ReportEquipment;
@@ -25,16 +26,13 @@ class ReportUsersController extends Controller {
         $start = $request->get('start');
         $length = $request->get('length');
 
-        
-
-        $query = Users::where("id","<>",null);
+        $query = users::where("id","<>",null);
 
         if ($filter) {
             $query = $query->where(function($query) use ($filter){
-                $query->orWhere('users.name', 'like', '%'. $filter . '%')
-                    ->orWhere('users.lastname', 'like', '%'. $filter . '%')
-                    ->orWhere('users.email', 'like', '%'. $filter . '%')
-                    ->orWhere('users.curp', 'like', '%'. $filter . '%');
+                $query->orWhere('document_type.Autor', 'like', '%'. $filter .'%')
+                    ->orWhere('document.Titulo', 'like', '%'. $filter . '%')
+                    ->orWhere('document.Carrera', 'like', '%'. $filter . '%');
             });
         }
 
@@ -47,16 +45,15 @@ class ReportUsersController extends Controller {
             "recordsFiltered" => $filtered,
             "data" => $query->get()
         ]);
-
 	}
 
-    // public function delete($id)
-	// {
-	// 	$tesis = Document::find($id);
-	// 	Document::where("id","=",$tesis->id)->delete();
-	// 	$tesis->delete();
-	// 	session()->flash("messages","success|Todos los registros fueron borrados");
-	// 	return redirect()->back();
-    // }
+    public function delete($id)
+	{
+		$tesis = users::find($id);
+		users::where("id","=",$tesis->id)->delete();
+		$tesis->delete();
+		session()->flash("messages","success|Todos los registros fueron borrados");
+		return redirect()->back();
+    }
 
 }

@@ -235,45 +235,50 @@ Route::group(['domain' => $alumnDomain], function() {
 
 					Route::name('logs.')->group(function() {
 
-						Route::group(["prefix" => "bibliografia"], function() {
+						// Route::group(["prefix" => "bibliografia"], function() {
 
-							Route::get('/', [
-						        'uses' => 'ClassRoomController@index', 
-						        'as' => 'classrooms.index'
-							]);
+						// 	Route::get('/', [
+						//         'uses' => 'ClassRoomController@index', 
+						//         'as' => 'classrooms.index'
+						// 	]);
 
-							Route::get('/create', [
-						        'uses' => 'ClassRoomController@create', 
-						        'as' => 'classrooms.create'
-							]);
+						// 	Route::get('/create', [
+						//         'uses' => 'ClassRoomController@create', 
+						//         'as' => 'classrooms.create'
+						// 	]);
 
-							Route::get('/edit/{id?}', [
-						        'uses' => 'ClassRoomController@edit', 
-						        'as' => 'classrooms.edit'
-							]);
+						// 	Route::get('/edit/{id?}', [
+						//         'uses' => 'ClassRoomController@edit', 
+						//         'as' => 'classrooms.edit'
+						// 	]);
 
-							Route::get('/delete/{id?}', [
-						        'uses' => 'ClassRoomController@delete', 
-						        'as' => 'classrooms.delete'
-							]);
+						// 	Route::get('/delete/{id?}', [
+						//         'uses' => 'ClassRoomController@delete', 
+						//         'as' => 'classrooms.delete'
+						// 	]);
 
-							Route::post('/save/{instance?}', [
-						        'uses' => 'ClassRoomController@save', 
-						        'as' => 'classrooms.save'
-							]);
+						// 	Route::post('/save/{instance?}', [
+						//         'uses' => 'ClassRoomController@save', 
+						//         'as' => 'classrooms.save'
+						// 	]);
 
-						});
+						// });
 
-						Route::group(["prefix" => "users"], function() {
+						Route::group(["prefix" => "usuarios"], function() {
 							Route::get('/', [
 								'uses' => 'ReportUsersController@index',
-								'as' => 'users.index'
+								'as' => 'usuarios.index'
 							]);
 
-							Route::get('/datatable', [
+							Route::post('/datatable', [
 								'uses' => 'ReportUsersController@datatable',
-								'as' => 'users.datatable'
+								'as' => 'usuarios.datatable'
 							]);
+
+							Route::get('/delete/{id}', [
+								'uses' => 'ReportUsersController@delete', 
+								'as' => 'usuarios.delete'
+							]);	
 						});
 
 						Route::group(["prefix" => "tesis"], function() {
@@ -296,40 +301,6 @@ Route::group(['domain' => $alumnDomain], function() {
 								'uses' => 'ReportController@delete', 
 								'as' => 'tesis.delete'
 							]);	
-
-						});
-
-						Route::group(["prefix" => "equipments"], function() {
-
-							Route::get('/', [
-						        'uses' => 'EquipmentController@index', 
-						        'as' => 'equipment.index'
-							]);
-
-							Route::get('/delete/{id?}', [
-						        'uses' => 'EquipmentController@delete', 
-						        'as' => 'equipment.delete'
-							]);
-
-							Route::post('/save', [
-						        'uses' => 'EquipmentController@save', 
-						        'as' => 'equipment.save'
-							]);
-
-							Route::post('/fill', [
-						        'uses' => 'EquipmentController@fillOrQuit', 
-						        'as' => 'equipment.fill'
-							]);
-
-							Route::get('/getEquipment', [
-						        'uses' => 'EquipmentController@equipment', 
-						        'as' => 'equipment.getEquipment'
-							]);
-
-							Route::get('/getAlumnInfo', [
-						        'uses' => 'EquipmentController@alumnData', 
-						        'as' => 'equipment.alumnData'
-							]);
 
 						});
 

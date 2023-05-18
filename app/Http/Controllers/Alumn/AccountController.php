@@ -41,10 +41,6 @@ class AccountController extends Controller
                     $user->id_alumno = 5;
                     $user->save();
 
-                    // $validate = Pending::where("enrollment","=",$request->input('matricula'))->first();
-                    // $validate->status=1;
-                    // $validate->save();
-
                     $credentials = $request->only('email', 'password');
                     if (Auth::guard('alumn')->attempt($credentials)) {
                         session()->flash("messages", "success|Bienvenido".$user->name.".");
@@ -84,10 +80,10 @@ class AccountController extends Controller
             $user->name = normalizeChars($request->input("name"));
             $user->lastname = normalizeChars($request->input("lastname"));
             $user->email = $request->input("email");
-            $user->curp = $request->input("curp");
+            // $user->curp = $request->input("curp");
             $user->password = bcrypt($request->input("password"));
             $user->save(); 
-            session()->flash("messages", 'success|Su registro se realizó con éxito|De click en el botón Acceso Nuevo Ingreso (Color Naranja ) para iniciar sesión');
+            session()->flash("messages", 'success|Su registro se realizó con éxito|De click en el botón Acceso para iniciar sesión');
             return redirect()->back(); 
         } catch(\Exception $e) {
            session()->flash("messages","error|Opps, ocurrió un problema que no esperabamos.");

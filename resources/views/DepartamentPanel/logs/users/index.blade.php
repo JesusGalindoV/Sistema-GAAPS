@@ -14,7 +14,7 @@
 
         <div class="col-sm-6">
 
-          <h1>Usuarios Registrados</h1>
+          <h1>Usuarios registrados en el sistema</h1>
 
         </div>
 
@@ -35,10 +35,9 @@
             <thead>
               <tr>
                 <th style="width: 10px">#</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Email</th>
-                <th>Curp</th>
+                <th>Nombre(s)</th>
+                <th>Apellido(s)</th>
+                <th>Correo</th>
                 <th>Acciones</th>
               </tr>  
             </thead>
@@ -65,7 +64,7 @@
         "processing": true,
         "serverSide": true,
         "ajax": {
-          "url": "{{ route('departament.logs.users.datatable') }}",
+          "url": "{{ route('departament.logs.usuarios.datatable') }}",
           "type": "POST",
           "headers":{'X-CSRF-TOKEN' : '{{ csrf_token() }}'},
         },
@@ -76,11 +75,10 @@
           {"data": "name"},
           {"data": "lastname"},
           {"data": "email"},
-          {"data": "curp"},
           {
             "data": "id",
             "render": (data) => {
-              return `<button class='btn btn-danger btnDeleteTesis' id='${data}' title='Eliminar usuario' title='eliminar'><i class='fas fa-trash'></i></button></div>`;
+              return `<button class='btn btn-danger btnDeleteTesis' id='${data}' title='Eliminar memoría' title='eliminar'><i class='fas fa-trash'></i></button></div>`;
             }
           }
         ],
@@ -116,24 +114,24 @@
   Datatable.init();
 
 
-//   $(".table").on("click","button.btnDeleteTesis",function(){
-// 							var id = $(this).attr("id");
-// 							swal.fire({
-// 								title: '¿Esta seguro de eliminar esta memoría de estadia?',
-// 								text: "¡todo registro de el sera borrado!",
-// 								type: 'warning',
-// 								showCancelButton: true,
-// 								confirmButtonColor: '#3085d6',
-// 								cancelButtonColor: '#d33',
-// 								cancelButtonText: 'Cancelar',
-// 								confirmButtonText: 'Si, estoy seguro'
-// 							}).then((result)=>{
-// 							  if (result.value)
-// 							  {
-// 								window.location = "tesis/delete/"+id;        
-// 							  }
-// 							});
-// 						});
+  $(".table").on("click","button.btnDeleteTesis",function(){
+							var id = $(this).attr("id");
+							swal.fire({
+								title: '¿Esta seguro de eliminar este usuario?',
+								text: "¡todo registro de el sera borrado!",
+								type: 'warning',
+								showCancelButton: true,
+								confirmButtonColor: '#3085d6',
+								cancelButtonColor: '#d33',
+								cancelButtonText: 'Cancelar',
+								confirmButtonText: 'Si, estoy seguro'
+							}).then((result)=>{
+							  if (result.value)
+							  {
+								window.location = "usuarios/delete/"+id;    
+							  }
+							});
+						});
 
 </script>
 

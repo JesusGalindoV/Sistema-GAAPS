@@ -50,27 +50,7 @@ class AuthController extends Controller
 
             }
 
-            if ($adminUser->area_id == 4) {
-                //USUARIO ADMINISTRADOR
-                if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-                {
-                    return redirect()->route('admin.home');
-                }
-
-                session()->flash('messages', 'error|Contraseña incorrecta');        
-                return redirect()->back()->withInput();
-
-            }else if ($adminUser->area_id == 2){
-                //USUARIOS FINANZAS     
-                if (Auth::guard('finance')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
-                {
-                    return redirect()->route('finance.home');
-                }
-
-                session()->flash('messages', 'error|Contraseña incorrecta');        
-                return redirect()->back()->withInput();
-
-            } else if ($adminUser->is_departament == 1){
+            if ($adminUser->is_departament == 1){
                 
                 //USUARIOS DEPARTAMENTO BIBLIOTECA Y COMPUTO
                 if (Auth::guard('departament')->attempt(['email' => $email, 'password' => $pass],$request->get('remember-me', 0)))
