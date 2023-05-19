@@ -159,7 +159,7 @@
                                 <i class="fas fa-calendar"></i></span>
                             </div>
 
-                            <input type="number" step="any" min="2007" max="2050" name="year" placeholder="Año de publicación" class="form-control" required maxlength="4">
+                            <input type="number" step="any" min="2007" max="{{ date('Y') }}" name="year" placeholder="Año de publicación" class="form-control" required maxlength="4">
 
                         </div>
 

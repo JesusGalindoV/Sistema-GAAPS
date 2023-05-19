@@ -30,7 +30,6 @@
 
                 <h3>Memorias de Estadías</h3>
 
-                <!-- <p>{{ $equipments }}</p> -->
                 <br>
 
               </div>
@@ -43,6 +42,32 @@
               <!-- i -->
 
               <a href="{{route('departament.logs.tesis.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
+
+            </div>
+
+          </div>
+
+          <!-- boton de usuaruis -->
+          <div class="col-md-4 col-sm-12">
+
+            <div class="small-box bg-success">
+
+              <div class="inner">
+
+                <h3>Usuarios</h3>
+
+                <br>
+
+              </div>
+              <div class="icon">
+
+                <i class="fas fa-users"></i>
+
+              </div>
+
+              <!-- i -->
+
+              <a href="{{route('departament.logs.usuarios.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 

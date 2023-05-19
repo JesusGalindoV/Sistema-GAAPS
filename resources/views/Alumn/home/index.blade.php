@@ -4,7 +4,7 @@
 
 @php
  
-  $boxCorreo = strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx")?"bg-info":"bg-danger";
+  $boxCorreo = strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx")?"bg-info":"bg-success";
  
 @endphp
 
@@ -63,7 +63,7 @@
               @if(strpos(Auth::guard('alumn')->user()->email, "@unisierra.edu.mx"))
               <a href="{{route('alumn.user')}}" class="small-box-footer">Ver mi perfil<i class="fas fa-arrow-circle-right"></i></a>
               @else
-              <a href="#" class="small-box-footer">Ir a perfil<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('alumn.user')}}" class="small-box-footer">Ir a perfil<i class="fas fa-arrow-circle-right"></i></a>
               @endif
 
             </div>

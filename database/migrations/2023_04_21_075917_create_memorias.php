@@ -18,6 +18,7 @@ class CreateMemorias extends Migration
             $table->bigIncrements("id");
             $table->string("Autor",100);
             $table->string("Titulo",50);
+            $table->string("Resumen",100);
             $table->string("Carrera",100);
             $table->string("Año",4);
             $table->string("route",50);

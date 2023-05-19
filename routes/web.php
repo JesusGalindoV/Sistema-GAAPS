@@ -235,35 +235,6 @@ Route::group(['domain' => $alumnDomain], function() {
 
 					Route::name('logs.')->group(function() {
 
-						// Route::group(["prefix" => "bibliografia"], function() {
-
-						// 	Route::get('/', [
-						//         'uses' => 'ClassRoomController@index', 
-						//         'as' => 'classrooms.index'
-						// 	]);
-
-						// 	Route::get('/create', [
-						//         'uses' => 'ClassRoomController@create', 
-						//         'as' => 'classrooms.create'
-						// 	]);
-
-						// 	Route::get('/edit/{id?}', [
-						//         'uses' => 'ClassRoomController@edit', 
-						//         'as' => 'classrooms.edit'
-						// 	]);
-
-						// 	Route::get('/delete/{id?}', [
-						//         'uses' => 'ClassRoomController@delete', 
-						//         'as' => 'classrooms.delete'
-						// 	]);
-
-						// 	Route::post('/save/{instance?}', [
-						//         'uses' => 'ClassRoomController@save', 
-						//         'as' => 'classrooms.save'
-						// 	]);
-
-						// });
-
 						Route::group(["prefix" => "usuarios"], function() {
 							Route::get('/', [
 								'uses' => 'ReportUsersController@index',
