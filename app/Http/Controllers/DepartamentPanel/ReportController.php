@@ -80,6 +80,7 @@ class ReportController extends Controller {
 
             $document->Autor = $request->input("autor");
             $document->Titulo = $request->input("titulo");
+            $document->Resumen = $request->input("resumen");
             $document->Carrera = $request->input("carrera");
             $document->Año = $request->input("year");
             $document->route = "/".$path."/".$documentName;   

@@ -56,6 +56,7 @@
                 <th style="width: 10px">Año</th>
                 <th>Documento</th>
                 <th>Acciones</th>
+                <th>Resumen</th>
               </tr>  
             </thead>
           </table>
@@ -120,6 +121,21 @@
                           </div>
 
                           <textarea type="text" name="titulo" placeholder="Ingrese el titulo" class="form-control" required></textarea>
+
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-12">           
+
+                      <div class="input-group mb-3">
+
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">
+                              <i class="fa fa-list-alt"></i></span>
+                          </div>
+
+                          <textarea type="text" name="resumen" placeholder="Ingrese el resumen" class="form-control" maxlength="100" required></textarea>
 
                       </div>
 
@@ -270,7 +286,8 @@
             "render": (data) => {
               return `<button class='btn btn-danger btnDeleteTesis' id='${data}' title='Eliminar memoría' title='eliminar'><i class='fas fa-trash'></i></button></div>`;
             }
-          }
+          },
+          {"data": "Resumen"},
         ],
         "language": {
 

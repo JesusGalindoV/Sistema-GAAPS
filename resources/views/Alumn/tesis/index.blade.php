@@ -40,6 +40,7 @@
                 <th style="width: 200px">Carrera</th>
                 <th style="width: 10px">Año</th>
                 <th style="width: 10px">Documento</th>
+                <th>Resumen</th>
               </tr>  
             </thead>
           </table>
@@ -83,7 +84,8 @@
             "render": (data) => {
               return `<a href="${data}" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i></a>`;
             }
-          }
+          },
+          {"data": "Resumen"}
         ],
         "language": {
 

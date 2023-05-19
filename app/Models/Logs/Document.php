@@ -13,6 +13,7 @@ class Document extends Model
     	'id',
         'Autor',
         'Titulo',
+        'Resumen',
         'Carrera',
         'Año',
         'route',
