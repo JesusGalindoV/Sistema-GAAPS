@@ -16,7 +16,7 @@ class ReportUsersController extends Controller {
 
 	public function index() {
 
-		return view("DepartamentPanel.logs.users.index");
+		return view("DepartamentPanel.modulos.users.index");
 
 	}
 
@@ -52,7 +52,7 @@ class ReportUsersController extends Controller {
 		$tesis = users::find($id);
 		users::where("id","=",$tesis->id)->delete();
 		$tesis->delete();
-		session()->flash("messages","success|Todos los registros fueron borrados");
+		session()->flash("messages","success|¡Todo el registro fue borrado exitosamente!");
 		return redirect()->back();
     }
 

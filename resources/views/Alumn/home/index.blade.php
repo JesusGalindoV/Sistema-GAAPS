@@ -88,7 +88,7 @@
 
               </div>
 
-              <a href="{{route('alumn.tesis')}}" class="small-box-footer">Ver memorias<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('alumn.memorias')}}" class="small-box-footer">Ver memorias<i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
             

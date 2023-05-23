@@ -27,18 +27,6 @@ Route::group(['domain' => $alumnDomain], function() {
 				'uses' => 'WebsiteController@register', 
 				'as' => 'register'
 			]);
-
-			//te lleva  a a la vista para enviar la peticion de restaurar pass
-			Route::get('/restore-pass',[
-		        'uses' => 'AuthController@requestRestorePass', 
-		        'as' => 'RequestRestorePass'
-			]);		
-
-			//envia la peticion de restaurar pass
-			Route::post('/restore-pass',[
-		        'uses' => 'AuthController@sendRequest', 
-		        'as' => 'sendRequest'
-		    ]);
 		 
 		    Route::get('/sign-out', [
 		        'uses' => 'AuthController@logout', 
@@ -93,9 +81,9 @@ Route::group(['domain' => $alumnDomain], function() {
 			        'as' => 'home'
 			    ]);	 
 				
-				Route::get('/user/tesis', [
+				Route::get('/memorias', [
 					'uses' => 'MemoriasController@index',
-					'as' => 'tesis'
+					'as' => 'memorias'
 				]);
 
 				Route::post('user/datatable', [
@@ -118,16 +106,6 @@ Route::group(['domain' => $alumnDomain], function() {
 
 		});
 
-	    Route::get('/restore-pass/{token?}', [
-	        'uses' => 'WebsiteController@viewRestore', 
-	        'as' => 'restore'
-	    ]);	
-
-	    Route::post('/restore/{instance?}', [
-	        'uses' => 'WebsiteController@restorePassword', 
-	        'as' => 'restore.password'
-	    ]);	
-
 		Route::get('/maintenance',[
 			'uses' => 'WebsiteController@inMaintenance', 
 			'as' => 'maintenance'
@@ -136,36 +114,7 @@ Route::group(['domain' => $alumnDomain], function() {
 	
 	});
 
-	Route::group(['prefix'=> 'admin', 'namespace'=>'AdminPanel'], function()
-	{
-	  	Route::name('admin.')->group(function()
-	  	{
-	  		Route::get('/sign-in',[
-		        'uses' => 'AuthController@login', 
-		        'as' => 'login'
-		    ]);
-
-		    Route::post('/sign-in',[
-		        'uses' => 'AuthController@postLogin', 
-		    ]);
-
-		    Route::get('/sign-out', [
-		        'uses' => 'AuthController@logout', 
-		        'as' => 'logout'
-		    ]);
-
-	  		Route::group(['middleware' => ['admin.user']
-			], function()
-			{
-				Route::get('/', [
-			        'uses' => 'HomeController@index', 
-			        'as' => 'home'
-				]);
-			});
-	  	});
-	});
-
-	Route::group(['prefix' => 'departaments', 'namespace' => 'DepartamentPanel'], function()
+	Route::group(['prefix' => 'archivero', 'namespace' => 'DepartamentPanel'], function()
 	{
 	  	Route::name('departament.')->group(function()
 	  	{
@@ -201,39 +150,9 @@ Route::group(['domain' => $alumnDomain], function() {
 			        'as' => 'user'
 				]);
 
-				Route::get('/debit', [
-			        'uses' => 'DebitController@index', 
-			        'as' => 'debit'
-				]);
+				Route::group(["prefix" => "modulo"], function() {
 
-				Route::post('/debit/save', [
-			        'uses' => 'DebitController@save', 
-			        'as' => 'debit.save'
-				]);
-
-				Route::post('/debit/update', [
-			        'uses' => 'DebitController@update', 
-			        'as' => 'debit.update'
-				]);
-				
-				Route::post('/debit/show', [
-			        'uses' => 'DebitController@showDebit', 
-			        'as' => 'debit.show'
-				]);
-
-				Route::post('/debit/see', [
-			        'uses' => 'DebitController@seeDebit', 
-			        'as' => 'debit.see'
-				]);
-
-				Route::get('/debit/delete/{id}', [
-			        'uses' => 'DebitController@delete', 
-			        'as' => 'debit.see'
-				]);
-
-				Route::group(["prefix" => "biblioteca"], function() {
-
-					Route::name('logs.')->group(function() {
+					Route::name('modulos.')->group(function() {
 
 						Route::group(["prefix" => "usuarios"], function() {
 							Route::get('/', [
@@ -252,24 +171,24 @@ Route::group(['domain' => $alumnDomain], function() {
 							]);	
 						});
 
-						Route::group(["prefix" => "tesis"], function() {
+						Route::group(["prefix" => "memorias"], function() {
 							Route::get('/', [
-						        'uses' => 'ReportController@index', 
+						        'uses' => 'ReportMemoriasController@index', 
 						        'as' => 'tesis.index'
 							]);
 
 							Route::post('/datatable', [
-						        'uses' => 'ReportController@datatable', 
+						        'uses' => 'ReportMemoriasController@datatable', 
 						        'as' => 'tesis.datatable'
 							]);
 
 							Route::post('/tesis/save', [
-								'uses' => 'ReportController@saveDocument', 
+								'uses' => 'ReportMemoriasController@saveDocument', 
 								'as' => 'tesis.save'
 							]);
 
 							Route::get('/delete/{id}', [
-								'uses' => 'ReportController@delete', 
+								'uses' => 'ReportMemoriasController@delete', 
 								'as' => 'tesis.delete'
 							]);	
 

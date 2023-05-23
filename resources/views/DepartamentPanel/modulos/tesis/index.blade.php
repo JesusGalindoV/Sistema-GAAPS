@@ -51,7 +51,7 @@
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Autor</th>
-                <th>Titulo</th>
+                <th>Título</th>
                 <th>Carrera</th>
                 <th style="width: 10px">Año</th>
                 <th>Documento</th>
@@ -78,7 +78,7 @@
 
     <div class="modal-content">
 
-      <form action="{{route('departament.logs.tesis.save')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('departament.modulos.tesis.save')}}" method="post" enctype="multipart/form-data">
             
             {{ csrf_field() }}
 
@@ -120,7 +120,7 @@
                               <i class="fas fa-ad"></i></span>
                           </div>
 
-                          <textarea type="text" name="titulo" placeholder="Ingrese el titulo" class="form-control" required></textarea>
+                          <textarea type="text" name="titulo" placeholder="Ingrese el título" class="form-control" required></textarea>
 
                       </div>
 
@@ -197,7 +197,7 @@
                             
                             <div class="form-group">
           
-                            <div class="panel">SUBIR MEMORIA DE ESTADIA</div>
+                            <div class="panel">SUBIR MEMORIA DE ESTADÍA</div>
           
                               <input accept="application/pdf" type="file" name="file-document" id="file-document" required>
           
@@ -263,7 +263,7 @@
         "processing": true,
         "serverSide": true,
         "ajax": {
-          "url": "{{ route('departament.logs.tesis.datatable') }}",
+          "url": "{{ route('departament.modulos.tesis.datatable') }}",
           "type": "POST",
           "headers":{'X-CSRF-TOKEN' : '{{ csrf_token() }}'},
         },
@@ -324,18 +324,18 @@
   $(".table").on("click","button.btnDeleteTesis",function(){
 							var id = $(this).attr("id");
 							swal.fire({
-								title: '¿Esta seguro de eliminar esta memoría de estadia?',
-								text: "¡todo registro de el sera borrado!",
+								title: '¿Está seguro de eliminar esta memoria de estadía?',
+								text: "¡Todo registro de esta será borrado!",
 								type: 'warning',
 								showCancelButton: true,
 								confirmButtonColor: '#3085d6',
 								cancelButtonColor: '#d33',
 								cancelButtonText: 'Cancelar',
-								confirmButtonText: 'Si, estoy seguro'
+								confirmButtonText: 'Sí, estoy seguro'
 							}).then((result)=>{
 							  if (result.value)
 							  {
-								window.location = "tesis/delete/"+id;        
+								window.location = "memorias/delete/"+id;        
 							  }
 							});
 						});

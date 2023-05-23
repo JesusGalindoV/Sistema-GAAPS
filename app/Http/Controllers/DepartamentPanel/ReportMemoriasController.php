@@ -11,11 +11,11 @@ use App\Models\Alumns\User;
 use Carbon\Carbon;
 use DB;
 
-class ReportController extends Controller {
+class ReportMemoriasController extends Controller {
 
 	public function index() {
 
-		return view("DepartamentPanel.logs.tesis.index");
+		return view("DepartamentPanel.modulos.tesis.index");
 	}
 
 	public function datatable(Request $request) 
