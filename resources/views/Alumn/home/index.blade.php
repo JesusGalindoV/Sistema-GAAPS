@@ -44,7 +44,7 @@
 
           <div class="col-md-3 col-sm-12">
 
-            <div class="small-box {{$boxCorreo}}">
+            <div class="small-box {{$boxCorreo}}" style="background: #28a745 !important">
 
               <div class="inner">
 
@@ -72,9 +72,9 @@
 
           <div class="col-md-3 col-sm-12">
 
-            <div class="small-box {{$boxCorreo}}">
+            <div class="small-box {{$boxCorreo}}" style="background: #28a745 !important">
 
-              <div class="inner">
+              <div class="inner" style="background: #28a745 !important">
 
                 <h3>Memorias</h3>
 
@@ -82,7 +82,7 @@
 
               </div>
 
-              <div class="icon">
+              <div class="icon" >
 
                 <i class="fa fa-book"></i>
 

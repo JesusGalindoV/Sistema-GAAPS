@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: green !important;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: #d2691e !important;">
 
     <a href="/portal" class="brand-link">
 
@@ -45,7 +45,7 @@
 
                 <li class="nav-item">
 
-                    <a href="{{route('alumn.memorias')}}" class="nav-link">
+                    <a href="{{route('alumn.memorias')}}" class="nav-link" >
 
                         <i class="nav-icon fas fa-book"></i>
                         <p>

@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: green !important;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: #d2691e !important;">
 
     <a href="{{route('departament.user')}}" class="brand-link">
 

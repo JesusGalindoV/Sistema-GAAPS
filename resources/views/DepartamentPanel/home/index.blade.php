@@ -13,7 +13,7 @@
     </div>
   </section>
 
-  <section class="content">
+  <section class="content" >
 
     <div class="card">
       
