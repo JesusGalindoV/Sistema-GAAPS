@@ -153,7 +153,7 @@
                             <select name="carrera" id="Nombre" class="form-control select2" style="width: 88%">
                                 <option value="">Seleccione la carrera</option>
                                 @php
-                                    $carreras = selectCarreraWithSicoes();
+                                    $carreras = selectCarreraWithPortal();
                                 @endphp
 
                                 @foreach($carreras as $key => $value)
@@ -197,7 +197,7 @@
                             
                             <div class="form-group">
           
-                            <div class="panel">SUBIR MEMORIA DE ESTADIA</div>
+                            <div class="panel">SUBIR MEMORIA DE ESTADÍA</div>
           
                               <input accept="application/pdf" type="file" name="file-document" id="file-document" required>
           

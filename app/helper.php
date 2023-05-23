@@ -10,7 +10,7 @@ use Mpdf\Mpdf;
 use Illuminate\Support\Facades\Storage;
 
 
-function selectCarreraWithSicoes() {
+function selectCarreraWithPortal() {
     return DB::table("carrera")->where("CarreraId","<>",null)->get();
 }
 
