@@ -36,7 +36,7 @@
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Autor</th>
-                <th>Titulo</th>
+                <th>Título</th>
                 <th style="width: 200px">Carrera</th>
                 <th style="width: 10px">Año</th>
                 <th style="width: 10px">Documento</th>

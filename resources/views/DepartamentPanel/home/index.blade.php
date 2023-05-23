@@ -41,7 +41,7 @@
 
               <!-- i -->
 
-              <a href="{{route('departament.logs.tesis.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.modulos.tesis.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 
@@ -67,7 +67,7 @@
 
               <!-- i -->
 
-              <a href="{{route('departament.logs.usuarios.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('departament.modulos.usuarios.index')}}" class="small-box-footer" >Ver <i class="fas fa-arrow-circle-right"></i></a>
 
             </div>
 

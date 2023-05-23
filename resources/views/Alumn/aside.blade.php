@@ -43,6 +43,18 @@
 
                 </li>
 
+                <li class="nav-item">
+
+                    <a href="{{route('alumn.memorias')}}" class="nav-link">
+
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Memorias de estadía
+                        </p>
+                    </a>
+
+                </li>
+
                 @if(Auth::guard('alumn')->user()->id_alumno != null)
 
                     <li class="nav-item">
@@ -55,18 +67,6 @@
                     </li>
                 
                 @endif
-
-                <li class="nav-item">
-
-                    <a href="{{route('alumn.tesis')}}" class="nav-link">
-
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Memorias de estadía
-                        </p>
-                    </a>
-
-                </li>
 
             </ul>
 

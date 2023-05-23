@@ -18,7 +18,7 @@ class MemoriasController extends Controller
     public function index()
     {
 
-        return view('Alumn.tesis.index');
+        return view('Alumn.memorias.index');
         
     }
 
