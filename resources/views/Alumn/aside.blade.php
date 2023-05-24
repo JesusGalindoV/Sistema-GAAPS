@@ -55,7 +55,7 @@
 
                 </li>
 
-                @if(Auth::guard('alumn')->user()->id_alumno != null)
+                {{-- @if(Auth::guard('alumn')->user()->id_alumno != null) --}}
 
                     <li class="nav-item">
                         <a href="{{route('alumn.user')}}" class="nav-link">
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                 
-                @endif
+                {{-- @endif --}}
 
             </ul>
 
