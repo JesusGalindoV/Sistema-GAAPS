@@ -15,8 +15,8 @@
 
             <div class="image">
 
-                <img src="{{ asset('img/temple/osos_alfa.png') }}" class="img-circle elevation-2"
-                    alt="User Image">
+            <img src="{{ Croppa::url(current_user()->photo, 200,200) }}" class="user-image img-circle" >
+
             </div>
 
             <div class="info">
