@@ -28,9 +28,9 @@
 
               <div class="inner">
 
-                <h3>Memorias de Estadías</h3>
+              <h3>Memorias</h3>
 
-                <br>
+                <p>Ver memorias de estadía</p>
 
               </div>
               <div class="icon">
@@ -56,7 +56,7 @@
 
                 <h3>Usuarios</h3>
 
-                <br>
+                <p>Ver usuarios</p>
 
               </div>
               <div class="icon">

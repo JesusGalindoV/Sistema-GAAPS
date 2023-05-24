@@ -18,7 +18,7 @@
         
         <div class="col-sm-6">
           
-          <h1>¡Bienvenido!</h1>
+          <h1>Bienvenido {{Auth::guard("alumn")->user()->name}}</h1>
           
         </div>
         

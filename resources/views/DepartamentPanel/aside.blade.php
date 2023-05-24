@@ -12,8 +12,7 @@
 
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('img/temple/osos_alfa.png') }}" class="img-circle elevation-2"
-                    alt="User Image">
+                    <img src="{{ Croppa::url(current_user('departament')->photo, 200,200) }}" class="user-image img-circle">
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{ Auth::guard('departament')->user()->name }}</a>

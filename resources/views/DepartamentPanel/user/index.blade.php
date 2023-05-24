@@ -79,13 +79,13 @@
 
                       <span class="username">
 
-                        <a href="#">Unisierra</a>
+                        <a href="#">GAAPS</a>
 
                         <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
 
                       </span>
 
-                      <span class="description">Shared publicly - 7:30 PM today</span>
+                      <span class="description">Publicado - Hoy a las 7:30 PM</span>
 
                     </div>
 
@@ -109,7 +109,7 @@
 
                     <div class="form-group row">
 
-                      <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                      <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
 
                       <div class="col-sm-10">
 
@@ -133,7 +133,7 @@
 
                     <div class="form-group row">
 
-                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                      <label for="inputEmail" class="col-sm-2 col-form-label">Correo</label>
 
                       <div class="col-sm-10">
 
@@ -145,11 +145,11 @@
 
                     <div class="form-group row">
 
-                      <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
+                      <label for="inputName2" class="col-sm-2 col-form-label">Contraseña</label>
 
                       <div class="col-sm-10">
 
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
 
                       </div>
 
