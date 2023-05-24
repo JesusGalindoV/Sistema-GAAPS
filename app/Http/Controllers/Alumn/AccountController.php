@@ -60,10 +60,11 @@ class AccountController extends Controller
     {
 
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
             'name'=>'required',
-            'lastname'=>'required'
+            'lastname'=>'required',
+            'email' => 'required',
+            'password' => 'required'
+            
         ]);
 
         //validar que un correo no exista.
