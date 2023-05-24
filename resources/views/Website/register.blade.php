@@ -73,7 +73,7 @@
 
 								  	<label class="field a-field a-field_a2">
 
-									    <input class="field__input a-field__input" placeholder="Ingrese su nombre" id="name" name="name" required value="{{ old('name') }}">
+									    <input class="field__input a-field__input" placeholder="Ingrese su nombre" id="name" name="name"  autofocus required>
 
 									    <span class="a-field__label-wrap">
 
@@ -93,7 +93,7 @@
 
 								  	<label class="field a-field a-field_a2">
 
-									    <input class="field__input a-field__input" placeholder="Ingrese su apellido" id="lastname" name="lastname" value="{{ old('lastname') }}" required>
+									    <input class="field__input a-field__input" placeholder="Ingrese su apellido" id="lastname" name="lastname"  required>
 
 									    <span class="a-field__label-wrap">
 
@@ -196,17 +196,19 @@
 
 						</div>
 
-					</div>
-						
-					<div class="row footer-custom">
+						<div class="row footer-custom">
 
-						<div class="col-md-12">
-
-							<button type="button" class="btn btn-primary btn-block boton sent" id='btnGuardar'>Guardar</button>
-							
+							<div class="col-md-12">
+	
+								<button type="button" class="btn btn-primary btn-block boton sent" id='btnGuardar'>Guardar</button>
+								
+							</div>
+	
 						</div>
 
 					</div>
+						
+					
 
 				</form>
 
@@ -229,23 +231,39 @@
 </div>
 
 <script>
-    $(document).ready(function()
-    {
-        @if(isset($error))
-            toastr.warning("{{$error}}");
-        @endif
 
-        @if($errors->any())
-            @foreach ($errors->all() as $error)
-                toastr.error('{{$error}}');
-            @endforeach
-        @endif
-    });
+document.getElementById('btnGuardar').addEventListener('click', function() {
+		var nameInput = document.getElementById('name');
+		var lastnameInput = document.getElementById('lastname');
+		var email = document.getElementById('email');
+		var pass1 = document.getElementById('fitst');
+		var pass2 = document.getElementById('password');
 
-	function aMayusculas(obj,id){
-    	obj = obj.toUpperCase();
-    	document.getElementById(id).value = obj;
-	}
+		if (nameInput.value === '' || lastnameInput.value === '' || email.value === '' || pass1.value === '' || pass2.value === '') {
+			alert('Por favor, complete todos los campos.');
+		} else {
+			// Aquí puedes enviar el formulario
+			document.querySelector('form').submit();
+		}
+	});
+
+    // $(document).ready(function()
+    // {
+    //     @if(isset($error))
+    //         toastr.warning("{{$error}}");
+    //     @endif
+
+    //     @if($errors->any())
+    //         @foreach ($errors->all() as $error)
+    //             toastr.error('{{$error}}');
+    //         @endforeach
+    //     @endif
+    // });
+
+	// function aMayusculas(obj,id){
+    // 	obj = obj.toUpperCase();
+    // 	document.getElementById(id).value = obj;
+	// }
 
 </script>
 

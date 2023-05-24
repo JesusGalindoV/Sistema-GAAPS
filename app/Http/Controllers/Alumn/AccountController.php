@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumn;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Alumns\User;
+use App\Models\AdminUsers\AdminUser;
 use App\Models\Website\Pending;
 use App\Models\Sicoes\Alumno;
 use App\Library\Log;
@@ -69,8 +70,9 @@ class AccountController extends Controller
 
         //validar que un correo no exista.
         $validate = User::where("email","=", $request->input("email"))->first();
+        $adminUser = AdminUser::where('email', "=" ,$request->input("email"))->first();
 
-        if($validate) {
+        if($validate || $adminUser) {
             session()->flash("messages","error|El correo ".$request->input("email")." ya esta registrado");
             return redirect()->back()->withInput();
         }
