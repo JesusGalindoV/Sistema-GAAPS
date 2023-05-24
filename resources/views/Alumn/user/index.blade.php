@@ -77,7 +77,7 @@
 
                     <div class="user-block">
 
-                      <!-- <img class="img-circle img-bordered-sm" src="{{asset('img/temple/unisierra.png')}}" alt="user image"> -->
+                      <img class="img-circle img-bordered-sm" src="{{asset('img/temple/unisierra.png')}}" alt="user image">
 
                       <span class="username">
 
