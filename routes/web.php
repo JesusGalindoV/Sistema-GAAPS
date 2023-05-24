@@ -38,28 +38,28 @@ Route::group(['domain' => $alumnDomain], function() {
 		        'as' => 'users.registerAlumn'
 		    ]);
 
-		    Route::get('/account/first_step',[
-		        'uses' => 'AccountController@index', 
-		        'as' => 'users.first_step'
-		    ]);
+		    // Route::get('/account/first_step',[
+		    //     'uses' => 'AccountController@index', 
+		    //     'as' => 'users.first_step'
+		    // ]);
 
-		    Route::post('/account/postStep/{step}',[
-		        'uses' => 'AccountController@save', 
-		        'as' => 'users.postStep'
-		    ]);
+		    // Route::post('/account/postStep/{step}',[
+		    //     'uses' => 'AccountController@save', 
+		    //     'as' => 'users.postStep'
+		    // ]);
 
 	  		Route::group(['middleware' => ['alumn.user']
 			], function() {
 
-				Route::get('/notify/show',[
-						'uses'=>'UserController@notify', 
-						'as' => 'notify.show'
-				]);
+				// Route::get('/notify/show',[
+				// 		'uses'=>'UserController@notify', 
+				// 		'as' => 'notify.show'
+				// ]);
 
-				Route::get('/notify/{route?}/{id?}',[
-						'uses'=>'UserController@seeNotify', 
-						'as' => 'notify'
-				]);
+				// Route::get('/notify/{route?}/{id?}',[
+				// 		'uses'=>'UserController@seeNotify', 
+				// 		'as' => 'notify'
+				// ]);
 
 				Route::group(['middleware' => ['candidate']
 				], function() {

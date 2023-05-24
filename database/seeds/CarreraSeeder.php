@@ -65,7 +65,7 @@ class CarreraSeeder extends Seeder
 
             DB::table('carrera')->insert([
                 'CarreraId' => '6',
-                'Clave' => '05',
+                'Clave' => '06',
                 'Nombre' => 'LICENCIATURA EN ADMINISTRACIÓN (en linea)',
                 'Abreviatura' => 'LATL',
                 'DivisionId' => '2',
