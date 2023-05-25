@@ -12,10 +12,9 @@ class HomeController extends Controller
 {
 	public function index()
 	{
-        $equipments = Equipment::where("status", 1)->count();
-		return view('DepartamentPanel.home.index', [
-            'equipments' => $equipments
-        ]);
+
+        return view('DepartamentPanel.home.index');
+
 	}
 
 	public function add() 
